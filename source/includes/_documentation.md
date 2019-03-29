@@ -292,6 +292,136 @@ public void FillComboBox()
 }
 ```
 
+### Input Type Date
+**Input Type Date** – a graphical control element, that allows the user to set the value of date.
+
+![InputTypeDate](../images/inputTypeDate.png)
+
+Here is the list of some available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets the date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+```java 
+TBD
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2000-01-01");
+    MyDateTime.GetValue();
+}
+```
+
+### Input Type Week
+**Input Type Week** – a graphical control element, that allows the user to set the value of week and year.
+
+![InputTypeWeek](../images/inputTypeWeek.png)
+
+Here is the list of some available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets the date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+```java 
+TBD
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2019-W11");
+    MyDateTime.GetValue();
+}
+```
+
+### Input Type Month
+**Input Type Month** – a graphical control element, that allows the user to set the value of month and year.
+
+![InputTypeMonth](../images/inputTypeMonth.png)
+
+Here is the list of some available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets the date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+```java 
+TBD
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2019-01");
+    MyDateTime.GetValue();
+}
+```
+
+### Input Type Time
+**Input Type Time** – a graphical control element, that allows the user to set the value of time.
+
+![InputTypeTime](../images/inputTime.png)
+
+Here is the list of some available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets the date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+```java 
+TBD
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("15:00");
+    MyDateTime.GetValue();
+}
+```
+
+### Input Type DateTime-Local
+**Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
+
+![InputTypeDateTime](../images/inputDateTimeLocal.png)
+
+Here is the list of some available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets the date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+```java 
+TBD
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2000-01-01T12:00");
+    MyDateTime.GetValue();
+}
+```
+
 
 ###FileInput
 **FileInput** - a grafical control element, that allows the user to upload documents on the web site
