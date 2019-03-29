@@ -932,6 +932,176 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
     <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
     <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="p">}</span>
+</code></pre><h3 id='input-type-date'>Input Type Date</h3>
+<p><strong>Input Type Date</strong> – a graphical control element, that allows the user to set the value of date.</p>
+
+<p><img src="images/inputTypeDate.png" alt="InputTypeDate" /></p>
+
+<p>Here is the list of some available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets the date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre><h3 id='input-type-week'>Input Type Week</h3>
+<p><strong>Input Type Week</strong> – a graphical control element, that allows the user to set the value of week and year.</p>
+
+<p><img src="images/inputTypeWeek.png" alt="InputTypeWeek" /></p>
+
+<p>Here is the list of some available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets the date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre><h3 id='input-type-month'>Input Type Month</h3>
+<p><strong>Input Type Month</strong> – a graphical control element, that allows the user to set the value of month and year.</p>
+
+<p><img src="images/inputTypeMonth.png" alt="InputTypeMonth" /></p>
+
+<p>Here is the list of some available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets the date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre><h3 id='input-type-time'>Input Type Time</h3>
+<p><strong>Input Type Time</strong> – a graphical control element, that allows the user to set the value of time.</p>
+
+<p><img src="images/inputTime.png" alt="InputTypeTime" /></p>
+
+<p>Here is the list of some available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets the date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"15:00"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre><h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3>
+<p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
+
+<p><img src="images/inputDateTimeLocal.png" alt="InputTypeDateTime" /></p>
+
+<p>Here is the list of some available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets the date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01T12:00"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre><h3 id='fileinput'>FileInput</h3>
 <p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
 
