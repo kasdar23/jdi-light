@@ -422,6 +422,32 @@ public void SetGetDateTime()
 }
 ```
 
+### Input Type Range
+**Input Type Range** – a graphical control element, that allows the user to set the value from the range.
+
+![InputTypeDateTime](../images/range.png)
+
+Here is the list of some available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetRange(string value)** | Sets the value | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
+
+```java 
+TBD
+```
+```csharp 
+[Test]
+public void SetGetRange() 
+{
+    MyDateTime.SetRange("50");
+    MyDateTime.GetValue();
+}
+```
+
 
 ### FileInput
 
