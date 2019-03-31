@@ -98,7 +98,7 @@ If you need to check somethhing fast and won't write Page Objects you can use si
 
 You also can init your Page Objects directly with elements if don't like annotations
 <br/><br/><br/><br/><br/><br/>
-### 4. Standard Test locators
+### 4. Smart Test locators
 ```
 <input type="text" id="name">
 <input type="text" id="last-name">
