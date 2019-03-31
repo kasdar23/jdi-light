@@ -168,21 +168,18 @@ public void chainAssertTest{
 @Test
 public void listAssertTest{
 	searchResults.assertThat()
-    .is().notEmpty();
-    .size(equalTo(10));
+    .is().notEmpty()
+    .size(equalTo(10))
 		.any(e -> e.name.equals("Jdi intro 2"))
-		.each(e -> e.name.toLowerCase().contains("jdi"));
-		.onlyOne(e -> e.name.contains("Jdi intro 1"));
+		.each(e -> e.name.toLowerCase().contains("jdi"))
+		.onlyOne(e -> e.name.contains("Jdi intro 1"))
 		.noOne(e -> e.name.contains("Selenide"));
 }
 @Test
 public void tableChainTest() {
 	users.assertThat()
-		.displayed()
-		.size(6)
-		.size(greaterThan(3))
-		.notEmpty()
-		.row(d -> d.user.contains("Ivan"))
+		.displayed().size(6).size(greaterThan(3))
+		.notEmpty().row(d -> d.user.contains("Ivan"))
 		.allRows(d -> d.user.length() > 4)
 		.atLeast(3).rows(d -> d.type.contains("User"))       
 		.row(SPIDER_MAN)
