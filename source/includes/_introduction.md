@@ -97,7 +97,7 @@ public class LoginForm extends Form<User> {
 If you need to check somethhing fast and won't write Page Objects you can use simple like "JQuery/Selenide" style without any additional code
 
 You also can init your Page Objects directly with elements if don't like annotations
-<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/>
 ### 4. Smart Test locators
 ```
 <input type="text" id="name">
@@ -142,8 +142,20 @@ You can manage how to create locator from field name using
 
 **WebSettings.SMART_SEARCH_NAME** - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 ### 5. Asserts/Matchers integrated with elements
+JDI has really flexible set of matchers integrated in elements
+
+To access elements matchers you can use methods:<br/>
+is()<br/>
+assertThat()<br/>
+has()<br/>
+waitFor()<br/>
+shouldBe()<br/>
+All of them works in the same way and difference in they name just for tests readability <br/>
+<br/>
+All JDI matchers powered by most popular in Java world matcher library [Hamcrest](http://hamcrest.org/JavaHamcrest/)<br/>
+And of course you can chain this matchers for multiple conditions validation
 
 ```java 
 @Test
