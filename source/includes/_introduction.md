@@ -144,18 +144,6 @@ You can manage how to create locator from field name using
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 ### 5. Asserts/Matchers integrated with elements
-JDI has really flexible set of matchers integrated in elements
-
-To access elements matchers you can use methods:<br/>
-is()<br/>
-assertThat()<br/>
-has()<br/>
-waitFor()<br/>
-shouldBe()<br/>
-All of them works in the same way and difference in they name just for tests readability <br/>
-<br/>
-All JDI matchers powered by most popular in Java world matcher library [Hamcrest](http://hamcrest.org/JavaHamcrest/)<br/>
-And of course you can chain this matchers for multiple conditions validation
 
 ```java 
 @Test
@@ -193,6 +181,19 @@ public void tableChainTest() {
 		.exact(1).rows(SPIDER_MAN);
 }
 ```
+JDI has really flexible set of matchers integrated in elements
+
+To access elements matchers you can use methods:<br/>
+is()<br/>
+assertThat()<br/>
+has()<br/>
+waitFor()<br/>
+shouldBe()<br/>
+All of them works in the same way and difference in they name just for tests readability <br/>
+<br/>
+All JDI matchers powered by most popular in Java world matcher library [Hamcrest](http://hamcrest.org/JavaHamcrest/)<br/>
+And of course you can chain this matchers for multiple conditions validation
+
 
 ## Start new project with JDI
 ## How to improve your Selenium project with new capabilities in few minutes
