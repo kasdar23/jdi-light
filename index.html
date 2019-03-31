@@ -443,7 +443,7 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 <p>If you need to check somethhing fast and won&#39;t write Page Objects you can use simple like &quot;JQuery/Selenide&quot; style without any additional code</p>
 
 <p>You also can init your Page Objects directly with elements if don&#39;t like annotations
-<br/><br/><br/><br/><br/><br/></p>
+<br/><br/><br/><br/><br/><br/><br/></p>
 <h3 id='4-smart-test-locators'>4. Smart Test locators</h3><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;
 &lt;input type="text" id="passport-code"&gt;
@@ -484,8 +484,21 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 
 <p><strong>WebSettings.SMART_SEARCH_NAME</strong> - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)</p>
 
-<p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
-<h3 id='5-asserts-matchers-integrated-with-elements'>5. Asserts/Matchers integrated with elements</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+<h3 id='5-asserts-matchers-integrated-with-elements'>5. Asserts/Matchers integrated with elements</h3>
+<p>JDI has really flexible set of matchers integrated in elements</p>
+
+<p>To access elements matchers you can use methods:<br/>
+is()<br/>
+assertThat()<br/>
+has()<br/>
+waitFor()<br/>
+shouldBe()<br/>
+All of them works in the same way and difference in they name just for tests readability <br/>
+<br/>
+All JDI matchers powered by most popular in Java world matcher library <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a><br/>
+And of course you can chain this matchers for multiple conditions validation</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="n">assertTest</span><span class="o">{</span>
   <span class="n">title</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"jdi"</span><span class="o">));</span>
   <span class="n">name</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">));</span>
