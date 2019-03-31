@@ -35,7 +35,7 @@ But this is not all, just Run this test in your IDE and what you will get?
 
 1. Detailed log in Console output:
 
-**Nice!** Isn't it? :ok_hand:
+**Nice!** Isn't it?
 
 2. Same log in log file (src/test/.logs/) if you would like to see test execution results remotely (require log4j2.xml in src/test/resources)
 3. Nice Allure report of your test execution! (require Allure settings in pom.xml)
@@ -143,7 +143,6 @@ You can manage how to create locator from field name using
 **WebSettings.SMART_SEARCH_NAME** - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-### 5. Asserts/Matchers integrated with elements
 
 ```java 
 @Test
@@ -181,19 +180,23 @@ public void tableChainTest() {
 		.exact(1).rows(SPIDER_MAN);
 }
 ```
+### 5. Asserts/Matchers integrated with elements
+
 JDI has really flexible set of matchers integrated in elements
 
-To access elements matchers you can use methods:<br/>
+- To access elements matchers you can use methods:<br/>
 is()<br/>
 assertThat()<br/>
 has()<br/>
 waitFor()<br/>
 shouldBe()<br/>
 All of them works in the same way and difference in they name just for tests readability <br/>
-<br/>
-All JDI matchers powered by most popular in Java world matcher library [Hamcrest](http://hamcrest.org/JavaHamcrest/)<br/>
-And of course you can chain this matchers for multiple conditions validation
-
+- JDI matchers powered by most popular in Java world matcher library [Hamcrest](http://hamcrest.org/JavaHamcrest/)<br/>
+And of course you can chain this matchers for multiple conditions validation<br/>
+- And one more good point, with JDI you don't need to use waits of any kind. JDI matchers handle most kinds of problems and will wait until expected condition appear even if this is not happened immediately
+For example if any kind of issues happen with you element JDI will retry to get the element and meet the condition
+Or if for example you have 3 elements in list and only after few seconds will be loaded more up to expected ten, JDI will wait and not fail in this case too<br/>
+**Really useful, do you agree?**
 
 ## Start new project with JDI
 ## How to improve your Selenium project with new capabilities in few minutes
