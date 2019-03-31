@@ -160,9 +160,9 @@ public void chainAssertTest{
 }
 @Test
 public void listAssertTest{
-	searchResults.assertThat()
-    .is().notEmpty()
-    .size(equalTo(10))
+	searchResults.is().notEmpty();
+	searchResults.assertThat()		
+		.size(equalTo(10))
 		.any(e -> e.name.equals("Jdi intro 2"))
 		.each(e -> e.name.toLowerCase().contains("jdi"))
 		.onlyOne(e -> e.name.contains("Jdi intro 1"))
