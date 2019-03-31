@@ -383,7 +383,7 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 <li>Detailed log in Console output:</li>
 </ol>
 
-<p><strong>Nice!</strong> Isn&#39;t it? :ok_hand:</p>
+<p><strong>Nice!</strong> Isn&#39;t it?</p>
 
 <ol>
 <li>Same log in log file (src/test/.logs/) if you would like to see test execution results remotely (require log4j2.xml in src/test/resources)</li>
@@ -485,7 +485,7 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 <p><strong>WebSettings.SMART_SEARCH_NAME</strong> - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)</p>
 
 <p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
-<h3 id='5-asserts-matchers-integrated-with-elements'>5. Asserts/Matchers integrated with elements</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="n">assertTest</span><span class="o">{</span>
   <span class="n">title</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"jdi"</span><span class="o">));</span>
   <span class="n">name</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">));</span>
@@ -519,19 +519,24 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
         <span class="o">.</span><span class="na">exact</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">description</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">":VIP"</span><span class="o">))</span>
         <span class="o">.</span><span class="na">exact</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">SPIDER_MAN</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre>
+</code></pre><h3 id='5-asserts-matchers-integrated-with-elements'>5. Asserts/Matchers integrated with elements</h3>
 <p>JDI has really flexible set of matchers integrated in elements</p>
 
-<p>To access elements matchers you can use methods:<br/>
+<ul>
+<li>To access elements matchers you can use methods:<br/>
 is()<br/>
 assertThat()<br/>
 has()<br/>
 waitFor()<br/>
 shouldBe()<br/>
-All of them works in the same way and difference in they name just for tests readability <br/>
-<br/>
-All JDI matchers powered by most popular in Java world matcher library <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a><br/>
-And of course you can chain this matchers for multiple conditions validation</p>
+All of them works in the same way and difference in they name just for tests readability <br/></li>
+<li>JDI matchers powered by most popular in Java world matcher library <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a><br/>
+And of course you can chain this matchers for multiple conditions validation<br/></li>
+<li>And one more good point, with JDI you don&#39;t need to use waits of any kind. JDI matchers handle most kinds of problems and will wait until expected condition appear even if this is not happened immediately
+For example if any kind of issues happen with you element JDI will retry to get the element and meet the condition
+Or if for example you have 3 elements in list and only after few seconds will be loaded more up to expected ten, JDI will wait and not fail in this case too<br/>
+<strong>Really useful, do you agree?</strong></li>
+</ul>
 <h2 id='start-new-project-with-jdi'>Start new project with JDI</h2><h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1><h2 id='first-login-test'>First Login Test</h2>
 <p>TBD</p>
 <h2 id='fill-complex-contact-form'>Fill complex Contact form</h2>
