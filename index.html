@@ -233,9 +233,6 @@
                     <a href="#simple-jdi-examples" class="toc-h2 toc-link" data-title="Simple JDI examples">Simple JDI examples</a>
                   </li>
                   <li>
-                    <a href="#test-scenario" class="toc-h2 toc-link" data-title="Test Scenario">Test Scenario</a>
-                  </li>
-                  <li>
                     <a href="#start-new-project-with-jdi" class="toc-h2 toc-link" data-title="Start new project with JDI">Start new project with JDI</a>
                   </li>
                   <li>
@@ -352,7 +349,9 @@
 <p>For the beginning I would like to show you how tipycal problems can be solved with JDI. Let&#39;s start from Login, most of the tests starts from this you need to login on site.</p>
 
 <p>Java code example can be found by link <a href="https://github.com/jdi-examples/jdi-introduction">https://github.com/jdi-examples/jdi-introduction</a></p>
-<h2 id='test-scenario'>Test Scenario</h2><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+
+<p><strong>Test Scenario</strong></p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">homePage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
     <span class="n">userIcon</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
@@ -443,7 +442,8 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 </code></pre><h3 id='3-short-term-non-page-objects-style'>3. Short term non Page Objects style</h3>
 <p>If you need to check somethhing fast and won&#39;t write Page Objects you can use simple like &quot;JQuery/Selenide&quot; style without any additional code</p>
 
-<p>You also can init your Page Objects directly with elements if don&#39;t like annotations</p>
+<p>You also can init your Page Objects directly with elements if don&#39;t like annotations
+<br/><br/><br/><br/></p>
 <h3 id='4-standard-test-locators'>4. Standard Test locators</h3><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;
 &lt;input type="text" id="passport-code"&gt;
@@ -483,7 +483,9 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 <p><strong>WebSettings.SMART_SEARCH_LOCATORS</strong> - list of locators that can be used to try to find element</p>
 
 <p><strong>WebSettings.SMART_SEARCH_NAME</strong> - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)</p>
-<h3 id='5-asserts-matchers-integrated-in-elements'>5. Asserts/Matchers integrated in elements</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+
+<p><br/><br/><br/><br/><br/><br/><br/><br/></p>
+<h3 id='5-asserts-matchers-integrated-with-elements'>5. Asserts/Matchers integrated with elements</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="n">assertTest</span><span class="o">{</span>
   <span class="n">title</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"jdi"</span><span class="o">));</span>
   <span class="n">name</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">));</span>
