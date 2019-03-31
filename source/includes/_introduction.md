@@ -97,7 +97,7 @@ public class LoginForm extends Form<User> {
 If you need to check somethhing fast and won't write Page Objects you can use simple like "JQuery/Selenide" style without any additional code
 
 You also can init your Page Objects directly with elements if don't like annotations
-<br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
 ### 4. Standard Test locators
 ```
 <input type="text" id="name">
@@ -142,7 +142,7 @@ You can manage how to create locator from field name using
 
 **WebSettings.SMART_SEARCH_NAME** - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
 
-<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 ### 5. Asserts/Matchers integrated with elements
 
 ```java 
