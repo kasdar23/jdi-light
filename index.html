@@ -500,9 +500,9 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 <span class="o">}</span>
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="n">listAssertTest</span><span class="o">{</span>
-    <span class="n">searchResults</span><span class="o">.</span><span class="na">assertThat</span><span class="o">()</span>
-    <span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notEmpty</span><span class="o">()</span>
-    <span class="o">.</span><span class="na">size</span><span class="o">(</span><span class="n">equalTo</span><span class="o">(</span><span class="mi">10</span><span class="o">))</span>
+    <span class="n">searchResults</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notEmpty</span><span class="o">();</span>
+    <span class="n">searchResults</span><span class="o">.</span><span class="na">assertThat</span><span class="o">()</span>      
+        <span class="o">.</span><span class="na">size</span><span class="o">(</span><span class="n">equalTo</span><span class="o">(</span><span class="mi">10</span><span class="o">))</span>
         <span class="o">.</span><span class="na">any</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"Jdi intro 2"</span><span class="o">))</span>
         <span class="o">.</span><span class="na">each</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"jdi"</span><span class="o">))</span>
         <span class="o">.</span><span class="na">onlyOne</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Jdi intro 1"</span><span class="o">))</span>
