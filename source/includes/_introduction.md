@@ -193,10 +193,15 @@ shouldBe()<br/>
 All of them works in the same way and difference in they name just for tests readability <br/>
 - JDI matchers powered by most popular in Java world matcher library [Hamcrest](http://hamcrest.org/JavaHamcrest/)<br/>
 And of course you can chain this matchers for multiple conditions validation<br/>
-- And one more good point, with JDI you don't need to use waits of any kind. JDI matchers handle most kinds of problems and will wait until expected condition appear even if this is not happened immediately
-For example if any kind of issues happen with you element JDI will retry to get the element and meet the condition
-Or if for example you have 3 elements in list and only after few seconds will be loaded more up to expected ten, JDI will wait and not fail in this case too<br/>
+- And with JDi no more waits or flaky tests with errors <br/>
+JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr
 **Really useful, do you agree?**
+
+### 6. Custom elements
+
+```java 
+```
+JDI elements will handle most of the common but each application unique and this is 
 
 ## Start new project with JDI
 ## How to improve your Selenium project with new capabilities in few minutes
