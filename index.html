@@ -296,6 +296,21 @@
                     <a href="#complex-elements" class="toc-h2 toc-link" data-title="Complex elements">Complex elements</a>
                   </li>
                   <li>
+                    <a href="#composite-elements" class="toc-h2 toc-link" data-title="Composite elements">Composite elements</a>
+                  </li>
+                  <li>
+                    <a href="#ui-objects" class="toc-h2 toc-link" data-title="UI Objects">UI Objects</a>
+                  </li>
+                  <li>
+                    <a href="#jdi-locators" class="toc-h2 toc-link" data-title="JDI Locators">JDI Locators</a>
+                  </li>
+                  <li>
+                    <a href="#windows-tabs-manager" class="toc-h2 toc-link" data-title="Windows/Tabs manager">Windows/Tabs manager</a>
+                  </li>
+                  <li>
+                    <a href="#alerts" class="toc-h2 toc-link" data-title="Alerts">Alerts</a>
+                  </li>
+                  <li>
                     <a href="#logs" class="toc-h2 toc-link" data-title="Logs">Logs</a>
                   </li>
                   <li>
@@ -1179,31 +1194,24 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 <span class="p">{</span>
     <span class="n">FileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
 <span class="p">}</span>
+</code></pre><h2 id='composite-elements'>Composite elements</h2>
+<p>TBD</p>
+<h2 id='ui-objects'>UI Objects</h2>
+<p>TBD</p>
+<h2 id='jdi-locators'>JDI Locators</h2>
+<p>TBD</p>
+<h2 id='windows-tabs-manager'>Windows/Tabs manager</h2>
+<p>TBD</p>
+<h2 id='alerts'>Alerts</h2>
+<p><strong>Alert</strong> –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action</p>
 
-<span class="err">##</span> <span class="n">Composite</span> <span class="n">elements</span>
-<span class="n">TBD</span>
+<aside class="notice">
+Note that you can make static import in order to simplify code Alerts.acceptAlert() > acceptAlert()
+</aside>
 
-<span class="err">##</span> <span class="n">UI</span> <span class="n">Objects</span>
-<span class="n">TBD</span>
-
-<span class="err">##</span> <span class="n">JDI</span> <span class="n">Locators</span>
-<span class="n">TBD</span>
-
-<span class="err">##</span> <span class="n">Windows</span><span class="p">/</span><span class="n">Tabs</span> <span class="n">manager</span>
-<span class="n">TBD</span>
-
-<span class="err">##</span> <span class="n">Alerts</span>
-<span class="p">**</span><span class="n">Alert</span><span class="p">**</span> <span class="err">–</span>  <span class="n">a</span> <span class="n">window</span> <span class="n">with</span> <span class="n">a</span> <span class="n">message</span> <span class="n">that</span> <span class="n">displays</span> <span class="k">on</span> <span class="n">the</span> <span class="n">screen</span> <span class="n">and</span> <span class="n">pauses</span> <span class="n">the</span> <span class="n">execution</span> <span class="n">of</span> <span class="n">the</span> <span class="n">script</span> <span class="n">until</span> <span class="n">the</span> <span class="n">user</span> <span class="n">performs</span> <span class="n">an</span> <span class="n">action</span>
-
-<span class="p">&lt;</span><span class="n">aside</span> <span class="k">class</span><span class="err">="</span><span class="nc">notice</span><span class="s">"&gt;
-</span><span class="n">Note</span> <span class="n">that</span> <span class="n">you</span> <span class="n">can</span> <span class="n">make</span> <span class="k">static</span> <span class="n">import</span> <span class="k">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">simplify</span> <span class="n">code</span> <span class="n">Alerts</span><span class="p">.</span><span class="nf">acceptAlert</span><span class="p">()</span> <span class="p">&gt;</span> <span class="nf">acceptAlert</span><span class="p">()</span>
-<span class="p">&lt;/</span><span class="n">aside</span><span class="p">&gt;</span>
-
-<span class="n">Handle</span> <span class="n">Window</span> <span class="n">alerts</span><span class="p">/</span><span class="n">confirm</span><span class="p">/</span><span class="n">prompt</span> <span class="n">dialogs</span> <span class="n">desribed</span> <span class="k">on</span> <span class="p">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="p">=</span><span class="err">'</span><span class="n">https</span><span class="p">:</span><span class="c1">//developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank"&gt;MDN&lt;/a&gt;</span>
-
-<span class="err">```</span><span class="n">java</span> 
-<span class="n">alertButton</span><span class="p">.</span><span class="nf">click</span><span class="p">();</span>
-<span class="nf">acceptAlert</span><span class="p">();</span>
+<p>Handle Window alerts/confirm/prompt dialogs desribed on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a></p>
+<pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+<span class="n">acceptAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">AcceptAlert</span><span class="p">();</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
