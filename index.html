@@ -1033,7 +1033,14 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<h3 id='input-type-month'>Input Type Month</h3>
+<h3 id='input-type-month'>Input Type Month</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
 <p><strong>Input Type Month</strong> – a graphical control element, that allows the user to set the value of month and year.</p>
 
 <p><img src="images/inputTypeMonth.png" alt="InputTypeMonth" /></p>
@@ -1060,14 +1067,14 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='input-type-time'>Input Type Time</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"15:00"</span><span class="p">);</span>
     <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre><h3 id='input-type-time'>Input Type Time</h3>
+</code></pre>
 <p><strong>Input Type Time</strong> – a graphical control element, that allows the user to set the value of time.</p>
 
 <p><img src="images/inputTime.png" alt="InputTypeTime" /></p>
@@ -1094,14 +1101,14 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"15:00"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01T12:00"</span><span class="p">);</span>
     <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre><h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3>
+</code></pre>
 <p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
 
 <p><img src="images/inputDateTimeLocal.png" alt="InputTypeDateTime" /></p>
@@ -1128,14 +1135,14 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='input-type-range'>Input Type Range</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetRange</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01T12:00"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetRange</span><span class="p">(</span><span class="s">"50"</span><span class="p">);</span>
     <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre><h3 id='input-type-range'>Input Type Range</h3>
+</code></pre>
 <p><strong>Input Type Range</strong> – a graphical control element, that allows the user to set the value from the range.</p>
 
 <p><img src="images/range.png" alt="InputTypeDateTime" /></p>
@@ -1162,14 +1169,12 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetRange</span><span class="p">()</span> 
+<h3 id='fileinput'>FileInput</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">FileInputTest</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetRange</span><span class="p">(</span><span class="s">"50"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">FileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
 <span class="p">}</span>
-</code></pre><h3 id='fileinput'>FileInput</h3>
+</code></pre>
 <p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
 
 <p><img src="images/fileinput.png" alt="FileInput" /></p>
@@ -1189,12 +1194,7 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs">Test examples</a></p>
-<pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FileInputTest</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">FileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre><h2 id='composite-elements'>Composite elements</h2>
+<h2 id='composite-elements'>Composite elements</h2>
 <p>TBD</p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
@@ -1202,15 +1202,7 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 <p>TBD</p>
 <h2 id='windows-tabs-manager'>Windows/Tabs manager</h2>
 <p>TBD</p>
-<h2 id='alerts'>Alerts</h2>
-<p><strong>Alert</strong> –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action</p>
-
-<aside class="notice">
-Note that you can make static import in order to simplify code Alerts.acceptAlert() > acceptAlert()
-</aside>
-
-<p>Handle Window alerts/confirm/prompt dialogs desribed on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a></p>
-<pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+<h2 id='alerts'>Alerts</h2><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">acceptAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">AcceptAlert</span><span class="p">();</span>
@@ -1219,6 +1211,14 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">DismissAlert</span><span class="p">();</span>
 </code></pre>
+<p><strong>Alert</strong> –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action</p>
+
+<aside class="notice">
+Note that you can make static import in order to simplify code Alerts.acceptAlert() > acceptAlert()
+</aside>
+
+<p>Handle Window alerts/confirm/prompt dialogs desribed on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a></p>
+
 <p>alert(&#39;Alert&#39;)</p>
 
 <p><img src="images/alert.png" alt="Alert" /></p>
