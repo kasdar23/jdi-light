@@ -52,19 +52,6 @@ AlertButton.Click();
 AcceptAlert();
 ```
 ### DropDown
-**DropDown** – a graphical control element, that allows the user to choose one value from a list.
-
-![DropDown](../images/dropdown.png)
-
-Here is the list of some available methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**Select(string/int)** |Select dropdown by value/index  | void
-**GetSelected()** |Get selected dropdown value  | string
-
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs)
-
 ```java 
 TBD
 ```
@@ -86,25 +73,20 @@ public void GetSelectedExample()
     Assert.AreEqual(selected, "some value");
 }
 ```
+**DropDown** – a graphical control element, that allows the user to choose one value from a list.
 
-### MultiDropDown
-**MultiDropDown** – a graphical control element, that allows the user to choose several values from a list.
-
-![DropDown](../images/multidropdown.png)
+![DropDown](../images/dropdown.png)
 
 Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**OptionIsEnabled(string)** |Check whether option is enabled  | bool
-**SelectOptionByname(string)** |Select specified option  | void
-**GetSelectedOptions()** |Get selected options  | List
-**SelectOptions(List)** |Select specified options  | void
-**OptionExists(string)** |Check whether option exists in list  | bool
-**Expand()** |Expand list  | void
-**Close()** |Close expanded list  | void
+**Select(string/int)** |Select dropdown by value/index  | void
+**GetSelected()** |Get selected dropdown value  | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs)
+
+### MultiDropDown
 
 ```java 
 TBD
@@ -137,23 +119,25 @@ public void CheckOptionIsDisabled()
     Jdi.Assert.IsFalse(TestSite.Html5Page.MultiDropdown.OptionIsEnabled("Disabled"));
 }
 ```
+**MultiDropDown** – a graphical control element, that allows the user to choose several values from a list.
 
-### DataList
-**DataList** – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
-
-![DataList](../images/datalist.png)
+![DropDown](../images/multidropdown.png)
 
 Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Expand()** |Expands the list of possible values | void
-**Select(string/int)** |Select datalist by value/index  | void
-**Input(string value)** |Input user's value into datalist  | void
-**GetSelected()** |Get selected datalist value  | string
+**OptionIsEnabled(string)** |Check whether option is enabled  | bool
+**SelectOptionByname(string)** |Select specified option  | void
+**GetSelectedOptions()** |Get selected options  | List
+**SelectOptions(List)** |Select specified options  | void
+**OptionExists(string)** |Check whether option exists in list  | bool
+**Expand()** |Expand list  | void
+**Close()** |Close expanded list  | void
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs)
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)
 
+### DataList
 ```java 
 TBD
 ```
@@ -180,24 +164,22 @@ public void FillDataList()
     SubmitButton.Click();
 }
 ```
+**DataList** – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
 
-### CheckList
-**CheckList** – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).
-
-![CheckList](../images/checklist.png)
+![DataList](../images/datalist.png)
 
 Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Check(string[]/int[])** |Select checklist by values/indexes  | void
-**Check(string/int)** |Select checklist by value/index  | void
-**Uncheck(string[]/int[])** |Unselect checklist by values/indexes  | void
-**Uncheck(string/int)** |Unselect checklist by value/index  | void
-**GetChecked()** |Get selected checkboxes from checklist value  | string[]
+**Expand()** |Expands the list of possible values | void
+**Select(string/int)** |Select datalist by value/index  | void
+**Input(string value)** |Input user's value into datalist  | void
+**GetSelected()** |Get selected datalist value  | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs)
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs)
 
+### CheckList
 ```java 
 TBD
 ```
@@ -215,23 +197,23 @@ public void CheckByIndexes()
     MyCheckList.Uncheck(1);
 }
 ```
+**CheckList** – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).
 
-### MultiSelector
-**MultiSelector** – a graphical control element, that allows the user to do multiple choice.
-
-![MultiSelector](../images/multiselector.png)
+![CheckList](../images/checklist.png)
 
 Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Select(string[]/int[])** |Select multiselector by values/indexes  | void
-**GetSelected(Array)** |Get selected values  | string[]
-**UnselectAll(Array)** |Unselect all values  | void
+**Check(string[]/int[])** |Select checklist by values/indexes  | void
+**Check(string/int)** |Select checklist by value/index  | void
+**Uncheck(string[]/int[])** |Unselect checklist by values/indexes  | void
+**Uncheck(string/int)** |Unselect checklist by value/index  | void
+**GetChecked()** |Get selected checkboxes from checklist value  | string[]
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs)
 
-
+### MultiSelector
 ```java 
 TBD
 ```
@@ -247,22 +229,21 @@ public void MultiSelectByIndexes()
     MyMultiSelector.Select(int[]);
 }
 ```
-### ComboBox
-**ComboBox** – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).
+**MultiSelector** – a graphical control element, that allows the user to do multiple choice.
 
-![ComboBox](../images/datalist.png)
+![MultiSelector](../images/multiselector.png)
 
 Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Expand()** |Expands the list of possible values | void
-**Select(string/int)** |Select datalist by value/index  | void
-**Input(string value)** |Input user's value into datalist  | void
-**GetSelected()** |Get selected datalist value  | string
+**Select(string[]/int[])** |Select multiselector by values/indexes  | void
+**GetSelected(Array)** |Get selected values  | string[]
+**UnselectAll(Array)** |Unselect all values  | void
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
 
+### ComboBox
 ```java 
 TBD
 ```
@@ -289,8 +270,33 @@ public void FillComboBox()
     SubmitButton.Click();
 }
 ```
+**ComboBox** – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).
+
+![ComboBox](../images/datalist.png)
+
+Here is the list of some available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Expand()** |Expands the list of possible values | void
+**Select(string/int)** |Select datalist by value/index  | void
+**Input(string value)** |Input user's value into datalist  | void
+**GetSelected()** |Get selected datalist value  | string
+
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
 
 ### Input Type Date
+```java 
+TBD
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2000-01-01");
+    MyDateTime.GetValue();
+}
+```
 **Input Type Date** – a graphical control element, that allows the user to set the value of date.
 
 ![InputTypeDate](../images/inputTypeDate.png)
@@ -304,6 +310,7 @@ Here is the list of some available methods:
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
+### Input Type Week
 ```java 
 TBD
 ```
@@ -311,12 +318,10 @@ TBD
 [Test]
 public void SetGetDateTime() 
 {
-    MyDateTime.SetDateTime("2000-01-01");
+    MyDateTime.SetDateTime("2019-W11");
     MyDateTime.GetValue();
 }
 ```
-
-### Input Type Week
 **Input Type Week** – a graphical control element, that allows the user to set the value of week and year.
 
 ![InputTypeWeek](../images/inputTypeWeek.png)
@@ -329,18 +334,6 @@ Here is the list of some available methods:
 **GetValue()** | Returns the set date or time | string
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
-
-```java 
-TBD
-```
-```csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime("2019-W11");
-    MyDateTime.GetValue();
-}
-```
 
 ### Input Type Month
 **Input Type Month** – a graphical control element, that allows the user to set the value of month and year.
