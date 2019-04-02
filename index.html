@@ -296,21 +296,6 @@
                     <a href="#complex-elements" class="toc-h2 toc-link" data-title="Complex elements">Complex elements</a>
                   </li>
                   <li>
-                    <a href="#composite-elements" class="toc-h2 toc-link" data-title="Composite elements">Composite elements</a>
-                  </li>
-                  <li>
-                    <a href="#ui-objects" class="toc-h2 toc-link" data-title="UI Objects">UI Objects</a>
-                  </li>
-                  <li>
-                    <a href="#jdi-locators" class="toc-h2 toc-link" data-title="JDI Locators">JDI Locators</a>
-                  </li>
-                  <li>
-                    <a href="#windows-tabs-manager" class="toc-h2 toc-link" data-title="Windows/Tabs manager">Windows/Tabs manager</a>
-                  </li>
-                  <li>
-                    <a href="#alerts" class="toc-h2 toc-link" data-title="Alerts">Alerts</a>
-                  </li>
-                  <li>
                     <a href="#logs" class="toc-h2 toc-link" data-title="Logs">Logs</a>
                   </li>
                   <li>
@@ -626,24 +611,7 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 <pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">AcceptAlert</span><span class="p">();</span>
-</code></pre><h3 id='dropdown'>DropDown</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDropDownExample</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndexExample</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelectedExample</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='dropdown'>DropDown</h3>
 <p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
 
 <p><img src="images/dropdown.png" alt="DropDown" /></p>
@@ -670,34 +638,24 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs">Test examples</a></p>
-<h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandMultiDropdown</span><span class="p">()</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDropDownExample</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
 <span class="p">}</span>
-
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectMultipleOptions</span><span class="p">()</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndexExample</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="kt">var</span> <span class="n">optionsList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span><span class="p">,</span> <span class="s">"Electro"</span> <span class="p">};</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="n">optionsList</span><span class="p">);</span>
+    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <span class="p">}</span>
-
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionExists</span><span class="p">()</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelectedExample</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionExists</span><span class="p">(</span><span class="s">"Steam"</span><span class="p">));</span>
+    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
 <span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionIsDisabled</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionIsEnabled</span><span class="p">(</span><span class="s">"Disabled"</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='multidropdown'>MultiDropDown</h3>
 <p><strong>MultiDropDown</strong> – a graphical control element, that allows the user to choose several values from a list.</p>
 
 <p><img src="images/multidropdown.png" alt="DropDown" /></p>
@@ -749,29 +707,34 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">Test examples</a></p>
-<h3 id='datalist'>DataList</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandMultiDropdown</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
 <span class="p">}</span>
+
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDataList</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectMultipleOptions</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">optionsList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span><span class="p">,</span> <span class="s">"Electro"</span> <span class="p">};</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="n">optionsList</span><span class="p">);</span>
 <span class="p">}</span>
+
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionExists</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionExists</span><span class="p">(</span><span class="s">"Steam"</span><span class="p">));</span>
 <span class="p">}</span>
+
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FillDataList</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionIsDisabled</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionIsEnabled</span><span class="p">(</span><span class="s">"Disabled"</span><span class="p">));</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='datalist'>DataList</h3>
 <p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.</p>
 
 <p><img src="images/datalist.png" alt="DataList" /></p>
@@ -808,20 +771,29 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs">Test examples</a></p>
-<h3 id='checklist'>CheckList</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="s">"value1"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">);</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"value2"</span><span class="p">);</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
 <span class="p">}</span>
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckByIndexes</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDataList</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">FillDataList</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre><h3 id='checklist'>CheckList</h3>
 <p><strong>CheckList</strong> – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).</p>
 
 <p><img src="images/checklist.png" alt="CheckList" /></p>
@@ -863,18 +835,20 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">Test examples</a></p>
-<h3 id='multiselector'>MultiSelector</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">string</span><span class="p">[]);</span>
+    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="s">"value1"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">);</span>
+    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"value2"</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByIndexes</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckByIndexes</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">int</span><span class="p">[]);</span>
+    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
+    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='multiselector'>MultiSelector</h3>
 <p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.</p>
 
 <p><img src="images/multiselector.png" alt="MultiSelector" /></p>
@@ -906,29 +880,18 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">Test examples</a></p>
-<h3 id='combobox'>ComboBox</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandComboBox</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">string</span><span class="p">[]);</span>
 <span class="p">}</span>
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectComboBox</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByIndexes</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">int</span><span class="p">[]);</span>
 <span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FillComboBox</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='combobox'>ComboBox</h3>
 <p><strong>ComboBox</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).</p>
 
 <p><img src="images/datalist.png" alt="ComboBox" /></p>
@@ -965,14 +928,29 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">Test examples</a></p>
-<h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandComboBox</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectComboBox</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">FillComboBox</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre><h3 id='input-type-date'>Input Type Date</h3>
 <p><strong>Input Type Date</strong> – a graphical control element, that allows the user to set the value of date.</p>
 
 <p><img src="images/inputTypeDate.png" alt="InputTypeDate" /></p>
@@ -999,14 +977,14 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<h3 id='input-type-week'>Input Type Week</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
     <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='input-type-week'>Input Type Week</h3>
 <p><strong>Input Type Week</strong> – a graphical control element, that allows the user to set the value of week and year.</p>
 
 <p><img src="images/inputTypeWeek.png" alt="InputTypeWeek" /></p>
@@ -1033,7 +1011,14 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<h3 id='input-type-month'>Input Type Month</h3>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre><h3 id='input-type-month'>Input Type Month</h3>
 <p><strong>Input Type Month</strong> – a graphical control element, that allows the user to set the value of month and year.</p>
 
 <p><img src="images/inputTypeMonth.png" alt="InputTypeMonth" /></p>
@@ -1194,24 +1179,31 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 <span class="p">{</span>
     <span class="n">FileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
 <span class="p">}</span>
-</code></pre><h2 id='composite-elements'>Composite elements</h2>
-<p>TBD</p>
-<h2 id='ui-objects'>UI Objects</h2>
-<p>TBD</p>
-<h2 id='jdi-locators'>JDI Locators</h2>
-<p>TBD</p>
-<h2 id='windows-tabs-manager'>Windows/Tabs manager</h2>
-<p>TBD</p>
-<h2 id='alerts'>Alerts</h2>
-<p><strong>Alert</strong> –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action</p>
 
-<aside class="notice">
-Note that you can make static import in order to simplify code Alerts.acceptAlert() > acceptAlert()
-</aside>
+<span class="err">##</span> <span class="n">Composite</span> <span class="n">elements</span>
+<span class="n">TBD</span>
 
-<p>Handle Window alerts/confirm/prompt dialogs desribed on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a></p>
-<pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-<span class="n">acceptAlert</span><span class="o">();</span>
+<span class="err">##</span> <span class="n">UI</span> <span class="n">Objects</span>
+<span class="n">TBD</span>
+
+<span class="err">##</span> <span class="n">JDI</span> <span class="n">Locators</span>
+<span class="n">TBD</span>
+
+<span class="err">##</span> <span class="n">Windows</span><span class="p">/</span><span class="n">Tabs</span> <span class="n">manager</span>
+<span class="n">TBD</span>
+
+<span class="err">##</span> <span class="n">Alerts</span>
+<span class="p">**</span><span class="n">Alert</span><span class="p">**</span> <span class="err">–</span>  <span class="n">a</span> <span class="n">window</span> <span class="n">with</span> <span class="n">a</span> <span class="n">message</span> <span class="n">that</span> <span class="n">displays</span> <span class="k">on</span> <span class="n">the</span> <span class="n">screen</span> <span class="n">and</span> <span class="n">pauses</span> <span class="n">the</span> <span class="n">execution</span> <span class="n">of</span> <span class="n">the</span> <span class="n">script</span> <span class="n">until</span> <span class="n">the</span> <span class="n">user</span> <span class="n">performs</span> <span class="n">an</span> <span class="n">action</span>
+
+<span class="p">&lt;</span><span class="n">aside</span> <span class="k">class</span><span class="err">="</span><span class="nc">notice</span><span class="s">"&gt;
+</span><span class="n">Note</span> <span class="n">that</span> <span class="n">you</span> <span class="n">can</span> <span class="n">make</span> <span class="k">static</span> <span class="n">import</span> <span class="k">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">simplify</span> <span class="n">code</span> <span class="n">Alerts</span><span class="p">.</span><span class="nf">acceptAlert</span><span class="p">()</span> <span class="p">&gt;</span> <span class="nf">acceptAlert</span><span class="p">()</span>
+<span class="p">&lt;/</span><span class="n">aside</span><span class="p">&gt;</span>
+
+<span class="n">Handle</span> <span class="n">Window</span> <span class="n">alerts</span><span class="p">/</span><span class="n">confirm</span><span class="p">/</span><span class="n">prompt</span> <span class="n">dialogs</span> <span class="n">desribed</span> <span class="k">on</span> <span class="p">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="p">=</span><span class="err">'</span><span class="n">https</span><span class="p">:</span><span class="c1">//developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank"&gt;MDN&lt;/a&gt;</span>
+
+<span class="err">```</span><span class="n">java</span> 
+<span class="n">alertButton</span><span class="p">.</span><span class="nf">click</span><span class="p">();</span>
+<span class="nf">acceptAlert</span><span class="p">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">AcceptAlert</span><span class="p">();</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
