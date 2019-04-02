@@ -562,7 +562,24 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 <p>TBD</p>
 <h2 id='simple-elements'>Simple elements</h2>
 <p>TBD</p>
-<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>
+<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButtonByIndex</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelected</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
 <p><strong>RadioButton</strong> – interface element that allows user to select one option from a predefined group.</p>
 
 <p><img src="images/radiobutton.png" alt="RadioButton" /></p>
@@ -589,24 +606,7 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButtonByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelected</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre><h3 id='table'>Table</h3>
+<h3 id='table'>Table</h3>
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs">Test examples</a></p>
 <pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
