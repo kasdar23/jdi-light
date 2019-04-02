@@ -44,13 +44,6 @@ Here is the list of some available methods:
 ### Table
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)
 
-```java 
-TBD
-```
-```csharp 
-AlertButton.Click();
-AcceptAlert();
-```
 ### DropDown
 ```java 
 TBD
