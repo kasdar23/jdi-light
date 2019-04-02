@@ -336,6 +336,17 @@ Here is the list of some available methods:
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
 ### Input Type Month
+```java 
+TBD
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2019-01");
+    MyDateTime.GetValue();
+}
+```
 **Input Type Month** – a graphical control element, that allows the user to set the value of month and year.
 
 ![InputTypeMonth](../images/inputTypeMonth.png)
@@ -349,6 +360,7 @@ Here is the list of some available methods:
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
+### Input Type Time
 ```java 
 TBD
 ```
@@ -356,12 +368,10 @@ TBD
 [Test]
 public void SetGetDateTime() 
 {
-    MyDateTime.SetDateTime("2019-01");
+    MyDateTime.SetDateTime("15:00");
     MyDateTime.GetValue();
 }
 ```
-
-### Input Type Time
 **Input Type Time** – a graphical control element, that allows the user to set the value of time.
 
 ![InputTypeTime](../images/inputTime.png)
@@ -375,6 +385,8 @@ Here is the list of some available methods:
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
+
+### Input Type DateTime-Local
 ```java 
 TBD
 ```
@@ -382,12 +394,10 @@ TBD
 [Test]
 public void SetGetDateTime() 
 {
-    MyDateTime.SetDateTime("15:00");
+    MyDateTime.SetDateTime("2000-01-01T12:00");
     MyDateTime.GetValue();
 }
 ```
-
-### Input Type DateTime-Local
 **Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
 
 ![InputTypeDateTime](../images/inputDateTimeLocal.png)
@@ -401,19 +411,18 @@ Here is the list of some available methods:
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
+### Input Type Range
 ```java 
 TBD
 ```
 ```csharp 
 [Test]
-public void SetGetDateTime() 
+public void SetGetRange() 
 {
-    MyDateTime.SetDateTime("2000-01-01T12:00");
+    MyDateTime.SetRange("50");
     MyDateTime.GetValue();
 }
 ```
-
-### Input Type Range
 **Input Type Range** – a graphical control element, that allows the user to set the value from the range.
 
 ![InputTypeDateTime](../images/range.png)
@@ -427,21 +436,14 @@ Here is the list of some available methods:
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
 
-```java 
-TBD
-```
-```csharp 
+### FileInput
+```csharp
 [Test]
-public void SetGetRange() 
+public void FileInputTest()
 {
-    MyDateTime.SetRange("50");
-    MyDateTime.GetValue();
+    FileInput.SelectFile(CreateFile(filename));
 }
 ```
-
-
-### FileInput
-
 **FileInput** - a grafical control element, that allows the user to upload documents on the web site
 
 ![FileInput](../images/fileinput.png)
@@ -452,13 +454,6 @@ public void SetGetRange()
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
 
-```csharp
-[Test]
-public void FileInputTest()
-{
-    FileInput.SelectFile(CreateFile(filename));
-}
-```
 ## Composite elements
 TBD
 
@@ -472,14 +467,6 @@ TBD
 TBD
 
 ## Alerts
-**Alert** –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action
-
-<aside class="notice">
-Note that you can make static import in order to simplify code Alerts.acceptAlert() > acceptAlert()
-</aside>
-
-Handle Window alerts/confirm/prompt dialogs desribed on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a>
-
 ```java 
 alertButton.click();
 acceptAlert();
@@ -496,6 +483,13 @@ dismissAlert();
 AlertButton.Click();
 DismissAlert();
 ```
+**Alert** –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action
+
+<aside class="notice">
+Note that you can make static import in order to simplify code Alerts.acceptAlert() > acceptAlert()
+</aside>
+
+Handle Window alerts/confirm/prompt dialogs desribed on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a>
 
 alert('Alert')
 
