@@ -626,7 +626,24 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 <pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">AcceptAlert</span><span class="p">();</span>
-</code></pre><h3 id='dropdown'>DropDown</h3>
+</code></pre><h3 id='dropdown'>DropDown</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDropDownExample</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndexExample</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelectedExample</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
 <p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
 
 <p><img src="images/dropdown.png" alt="DropDown" /></p>
@@ -653,24 +670,34 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDropDownExample</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandMultiDropdown</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
 <span class="p">}</span>
+
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndexExample</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectMultipleOptions</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">optionsList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span><span class="p">,</span> <span class="s">"Electro"</span> <span class="p">};</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="n">optionsList</span><span class="p">);</span>
 <span class="p">}</span>
+
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelectedExample</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionExists</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionExists</span><span class="p">(</span><span class="s">"Steam"</span><span class="p">));</span>
 <span class="p">}</span>
-</code></pre><h3 id='multidropdown'>MultiDropDown</h3>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionIsDisabled</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionIsEnabled</span><span class="p">(</span><span class="s">"Disabled"</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre>
 <p><strong>MultiDropDown</strong> – a graphical control element, that allows the user to choose several values from a list.</p>
 
 <p><img src="images/multidropdown.png" alt="DropDown" /></p>
@@ -722,34 +749,29 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='datalist'>DataList</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandMultiDropdown</span><span class="p">()</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
 <span class="p">}</span>
-
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectMultipleOptions</span><span class="p">()</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDataList</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="kt">var</span> <span class="n">optionsList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span><span class="p">,</span> <span class="s">"Electro"</span> <span class="p">};</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="n">optionsList</span><span class="p">);</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
 <span class="p">}</span>
-
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionExists</span><span class="p">()</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionExists</span><span class="p">(</span><span class="s">"Steam"</span><span class="p">));</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <span class="p">}</span>
-
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionIsDisabled</span><span class="p">()</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">FillDataList</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionIsEnabled</span><span class="p">(</span><span class="s">"Disabled"</span><span class="p">));</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre><h3 id='datalist'>DataList</h3>
+</code></pre>
 <p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.</p>
 
 <p><img src="images/datalist.png" alt="DataList" /></p>
@@ -786,29 +808,20 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='checklist'>CheckList</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="s">"value1"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">);</span>
+    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"value2"</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDataList</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckByIndexes</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
+    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FillDataList</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre><h3 id='checklist'>CheckList</h3>
+</code></pre>
 <p><strong>CheckList</strong> – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).</p>
 
 <p><img src="images/checklist.png" alt="CheckList" /></p>
@@ -850,20 +863,18 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='multiselector'>MultiSelector</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="s">"value1"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">);</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"value2"</span><span class="p">);</span>
+    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">string</span><span class="p">[]);</span>
 <span class="p">}</span>
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckByIndexes</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByIndexes</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">int</span><span class="p">[]);</span>
 <span class="p">}</span>
-</code></pre><h3 id='multiselector'>MultiSelector</h3>
+</code></pre>
 <p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.</p>
 
 <p><img src="images/multiselector.png" alt="MultiSelector" /></p>
@@ -895,18 +906,29 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='combobox'>ComboBox</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandComboBox</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">string</span><span class="p">[]);</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
 <span class="p">}</span>
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByIndexes</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectComboBox</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">int</span><span class="p">[]);</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre><h3 id='combobox'>ComboBox</h3>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">FillComboBox</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
 <p><strong>ComboBox</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).</p>
 
 <p><img src="images/datalist.png" alt="ComboBox" /></p>
@@ -943,29 +965,14 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandComboBox</span><span class="p">()</span> 
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectComboBox</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FillComboBox</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre><h3 id='input-type-date'>Input Type Date</h3>
+</code></pre>
 <p><strong>Input Type Date</strong> – a graphical control element, that allows the user to set the value of date.</p>
 
 <p><img src="images/inputTypeDate.png" alt="InputTypeDate" /></p>
@@ -992,14 +999,14 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='input-type-week'>Input Type Week</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
     <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre><h3 id='input-type-week'>Input Type Week</h3>
+</code></pre>
 <p><strong>Input Type Week</strong> – a graphical control element, that allows the user to set the value of week and year.</p>
 
 <p><img src="images/inputTypeWeek.png" alt="InputTypeWeek" /></p>
@@ -1026,14 +1033,7 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<pre class="highlight java tab-java"><code><span class="n">TBD</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre><h3 id='input-type-month'>Input Type Month</h3>
+<h3 id='input-type-month'>Input Type Month</h3>
 <p><strong>Input Type Month</strong> – a graphical control element, that allows the user to set the value of month and year.</p>
 
 <p><img src="images/inputTypeMonth.png" alt="InputTypeMonth" /></p>
