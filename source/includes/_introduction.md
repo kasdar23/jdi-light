@@ -194,14 +194,17 @@ All of them works in the same way and difference in they name just for tests rea
 - JDI matchers powered by most popular in Java world matcher library [Hamcrest](http://hamcrest.org/JavaHamcrest/)<br/>
 And of course you can chain this matchers for multiple conditions validation<br/>
 - And with JDi no more waits or flaky tests with errors <br/>
-JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr
+JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr <br/>
 **Really useful, do you agree?**
 
 ### 6. Custom elements
 
 ```java 
+
 ```
-JDI elements will handle most of the common but each application unique and this is 
+JDI html elements can handle typical standard cases but each application has unique culture of layout development and if your developers not follow common standards you can easily create pack of elements specific to your application and use them in JDI
+You can create your own elements or just extend existiong one with overriding one or two functions. <br/>
+See examples in code
 
 ## Start new project with JDI
 ## How to improve your Selenium project with new capabilities in few minutes
