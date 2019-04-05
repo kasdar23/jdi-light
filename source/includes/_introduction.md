@@ -3,7 +3,7 @@
 ### 1. Create simple Login test
 For the beginning I would like to show you how tipycal problems can be solved with JDI. Let's start from Login, most of the tests starts from this you need to login on site.
 
-Java code example can be found by link [https://github.com/jdi-examples/jdi-introduction](https://github.com/jdi-examples/jdi-introduction)
+Java code example can be found by <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">link</a>
 
 **Test Scenario**
 
@@ -16,7 +16,7 @@ public void loginTest() {
     homePage.checkOpened();
 }
 ```
-1. Open HomePage ([https://epam.github.io/JDI/index.html](https://epam.github.io/JDI/index.html))
+1. Open HomePage (<a href='https://epam.github.io/JDI/index.html' target="_blank">https://epam.github.io/JDI/index.html</a>)
 2. Click on User Icon (to open login dialog)
 2. Login as some default user
     - Enter 'epam' in login textfield
@@ -42,7 +42,7 @@ But this is not all, just Run this test in your IDE and what you will get?
 ![Allure Report](../images/intro/allure-report.png)
 ![Allure Log](../images/intro/allure-report-log.png)
 
-Just move allure-results folder in target folder and run maven > Plugins > allure > allure:serve
+Just move allure-results folder in  folder and run maven > Plugins > allure > allure:serve
 ![Allure Serve](../images/intro/allure-serve.png)
 
 ```java 
@@ -228,8 +228,8 @@ public class ContactForm extends Form<Contacts> {
 JDI html elements can handle typical standard cases but each application has unique culture of layout development and if your developers not follow common standards you can easily create pack of elements specific to your application and use them in JDI
 You can create your own elements or just extend existiong one with overriding one or two functions. <br/>
 See examples in code <br/>
-https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/main/java/io/github/com/custom/MenuItem.java <br/>
-https://github.com/jdi-testing/jdi-light/blob/master/jdi-performance/src/main/java/org/mytests/uiobjects/example/site/sections/ContactForm.java <br/>
+<a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/main/java/io/github/com/custom/MenuItem.java' target="_blank">Menu Check item</a> <br/>
+<a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-performance/src/main/java/org/mytests/uiobjects/example/site/sections/ContactForm.java' target="_blank">Contact Form</a>
 
 ## Start new project with JDI
 ## How to improve your Selenium project with new capabilities in few minutes
