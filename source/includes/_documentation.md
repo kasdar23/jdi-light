@@ -46,7 +46,17 @@ Here is the list of some available methods:
 
 ### DropDown
 ```java 
-TBD
+@JDropdown(root = "div[ui=dropdown]", value = ".filter-option",
+			list = "li", expand = ".caret")
+public static Droplist colors;
+```
+
+```java
+@Test
+public void complexTest() {
+    metalAndColorsPage.shouldBeOpened();
+    metalAndColorsPage.colors.select(Green);
+}
 ```
 ```csharp 
 [Test]
@@ -69,6 +79,11 @@ public void GetSelectedExample()
 **DropDown** – a graphical control element, that allows the user to choose one value from a list.
 
 ![DropDown](../images/dropdown.png)
+
+JDI has support for dropdown elements with its own type. 
+
+Suppose we have 'Colors' dropdown presented in the picture. It looks like this in HTML code:
+![Dropdown HTML](../images/dropdown_html.png)
 
 Here is the list of some available methods:
 
