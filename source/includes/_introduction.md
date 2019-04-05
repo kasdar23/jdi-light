@@ -200,7 +200,18 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 ### 6. Custom elements
 
 ```java 
-
+public class Checkbox extends HtmlElement {
+    @Override
+    public boolean isSelected() {
+        return hasClass("active") && attr("ui").equals("label");
+    }
+}
+public class Checklist extends HtmlChecklist {
+    @Override
+    public boolean isSelected(HtmlElement value) {
+        return hasClass("active") && attr("ui").equals("label");
+    }
+}
 ```
 JDI html elements can handle typical standard cases but each application has unique culture of layout development and if your developers not follow common standards you can easily create pack of elements specific to your application and use them in JDI
 You can create your own elements or just extend existiong one with overriding one or two functions. <br/>
