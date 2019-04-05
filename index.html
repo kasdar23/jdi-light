@@ -550,10 +550,9 @@ And of course you can chain this matchers for multiple conditions validation<br/
 <li>And with JDi no more waits or flaky tests with errors <br/>
 JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr <br/>
 <strong>Really useful, do you agree?</strong>
-<br/><br/><br/><br/><br/><br/><br/>
-### 6. Custom elements</li>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
+<h3 id='6-custom-elements'>6. Custom elements</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSelected</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="nf">find</span><span class="o">(</span><span class="s">"&lt;&lt;"</span><span class="o">).</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"active"</span><span class="o">);</span>
