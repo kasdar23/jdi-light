@@ -551,10 +551,10 @@ And of course you can chain this matchers for multiple conditions validation<br/
 JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr <br/>
 <strong>Really useful, do you agree?</strong></li>
 </ul>
-<h3 id='6-custom-elements'>6. Custom elements</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checkbox</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
+<h3 id='6-custom-elements'>6. Custom elements</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSelected</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nf">hasClass</span><span class="o">(</span><span class="s">"active"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">attr</span><span class="o">(</span><span class="s">"ui"</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="s">"label"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nf">find</span><span class="o">(</span><span class="s">"&lt;&lt;"</span><span class="o">).</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"active"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlChecklist</span> <span class="o">{</span>
@@ -563,10 +563,24 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
         <span class="k">return</span> <span class="nf">hasClass</span><span class="o">(</span><span class="s">"active"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">attr</span><span class="o">(</span><span class="s">"ui"</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="s">"label"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">Contacts</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> <span class="n">passportSeria</span><span class="o">;</span>
+<span class="o">...</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"['Submit']"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Button</span> <span class="n">submit</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fillAction</span><span class="o">(</span><span class="n">Field</span> <span class="n">field</span><span class="o">,</span> <span class="n">Object</span> <span class="n">element</span><span class="o">,</span> <span class="n">Object</span> <span class="n">parent</span><span class="o">,</span> <span class="n">String</span> <span class="n">setValue</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isInterface</span><span class="o">(</span><span class="n">field</span><span class="o">,</span> <span class="n">TextField</span><span class="o">.</span><span class="na">class</span><span class="o">))</span>
+            <span class="o">((</span><span class="n">TextField</span><span class="o">)</span><span class="n">element</span><span class="o">).</span><span class="na">higlight</span><span class="o">();</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">fillAction</span><span class="o">(</span><span class="n">field</span><span class="o">,</span> <span class="n">element</span><span class="o">,</span> <span class="n">parent</span><span class="o">,</span> <span class="n">setValue</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <p>JDI html elements can handle typical standard cases but each application has unique culture of layout development and if your developers not follow common standards you can easily create pack of elements specific to your application and use them in JDI
 You can create your own elements or just extend existiong one with overriding one or two functions. <br/>
-See examples in code</p>
+See examples in code <br/>
+https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/main/java/io/github/com/custom/MenuItem.java <br/>
+https://github.com/jdi-testing/jdi-light/blob/master/jdi-performance/src/main/java/org/mytests/uiobjects/example/site/sections/ContactForm.java <br/></p>
 <h2 id='start-new-project-with-jdi'>Start new project with JDI</h2><h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1><h2 id='first-login-test'>First Login Test</h2>
 <p>TBD</p>
 <h2 id='fill-complex-contact-form'>Fill complex Contact form</h2>
