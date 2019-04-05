@@ -200,10 +200,10 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 ### 6. Custom elements
 
 ```java 
-public class Checkbox extends HtmlElement {
+public class Checklist extends HtmlElement {
     @Override
     public boolean isSelected() {
-        return hasClass("active") && attr("ui").equals("label");
+        return find("<<").hasClass("active");
     }
 }
 public class Checklist extends HtmlChecklist {
@@ -212,10 +212,24 @@ public class Checklist extends HtmlChecklist {
         return hasClass("active") && attr("ui").equals("label");
     }
 }
+public class ContactForm extends Form<Contacts> {
+	TextField name, lastName, position, passportNumber, passportSeria;
+...
+	@UI("['Submit']") public Button submit;
+
+	@Override
+	public void fillAction(Field field, Object element, Object parent, String setValue) {
+		if (isInterface(field, TextField.class))
+			((TextField)element).higlight();
+		super.fillAction(field, element, parent, setValue);
+	}
+}
 ```
 JDI html elements can handle typical standard cases but each application has unique culture of layout development and if your developers not follow common standards you can easily create pack of elements specific to your application and use them in JDI
 You can create your own elements or just extend existiong one with overriding one or two functions. <br/>
-See examples in code
+See examples in code <br/>
+https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/main/java/io/github/com/custom/MenuItem.java <br/>
+https://github.com/jdi-testing/jdi-light/blob/master/jdi-performance/src/main/java/org/mytests/uiobjects/example/site/sections/ContactForm.java <br/>
 
 ## Start new project with JDI
 ## How to improve your Selenium project with new capabilities in few minutes
