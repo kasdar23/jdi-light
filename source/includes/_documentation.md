@@ -72,8 +72,6 @@ JDI has support for dropdown elements with its own type.
 
 Suppose we have 'Colors' dropdown presented in the picture. It looks like this in HTML code:
 
-![Dropdown HTML](../images/dropdown_html.png)
-
 ```java 
 @JDropdown(root = "div[ui=dropdown]", value = ".filter-option",
 			list = "li", expand = ".caret")
@@ -86,6 +84,8 @@ public void complexTest() {
     metalAndColorsPage.colors.select(Green);
 }
 ```
+
+![Dropdown HTML](../images/dropdown_html.png)
 
 Here is the list of some available methods:
 
