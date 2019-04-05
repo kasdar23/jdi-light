@@ -36,8 +36,8 @@ Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Select(string/int)** |Select dropdown by value/index  | void
-**GetSelected()** |Get selected dropdown value  | string
+**Select(string/int)** |Select radiobutton by value/index  | void
+**GetSelected()** |Get selected radiobutton value  | string
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs)
 
