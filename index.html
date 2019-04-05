@@ -551,7 +551,18 @@ And of course you can chain this matchers for multiple conditions validation<br/
 JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr <br/>
 <strong>Really useful, do you agree?</strong></li>
 </ul>
-<h3 id='6-custom-elements'>6. Custom elements</h3><pre class="highlight java tab-java"><code>
+<h3 id='6-custom-elements'>6. Custom elements</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checkbox</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSelected</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">hasClass</span><span class="o">(</span><span class="s">"active"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">attr</span><span class="o">(</span><span class="s">"ui"</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="s">"label"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlChecklist</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSelected</span><span class="o">(</span><span class="n">HtmlElement</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">hasClass</span><span class="o">(</span><span class="s">"active"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">attr</span><span class="o">(</span><span class="s">"ui"</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="s">"label"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 <p>JDI html elements can handle typical standard cases but each application has unique culture of layout development and if your developers not follow common standards you can easily create pack of elements specific to your application and use them in JDI
 You can create your own elements or just extend existiong one with overriding one or two functions. <br/>
