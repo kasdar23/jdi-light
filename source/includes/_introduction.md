@@ -196,7 +196,8 @@ And of course you can chain this matchers for multiple conditions validation<br/
 - And with JDi no more waits or flaky tests with errors <br/>
 JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr <br/>
 **Really useful, do you agree?**
-<br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 ### 6. Custom elements
 
 ```java 
