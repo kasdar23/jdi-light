@@ -45,19 +45,7 @@ Here is the list of some available methods:
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)
 
 ### DropDown
-```java 
-@JDropdown(root = "div[ui=dropdown]", value = ".filter-option",
-			list = "li", expand = ".caret")
-public static Droplist colors;
-```
 
-```java
-@Test
-public void complexTest() {
-    metalAndColorsPage.shouldBeOpened();
-    metalAndColorsPage.colors.select(Green);
-}
-```
 ```csharp 
 [Test]
 public void SelectDropDownExample() 
@@ -82,7 +70,20 @@ public void GetSelectedExample()
 
 JDI has support for dropdown elements with its own type. 
 
+```java 
+@JDropdown(root = "div[ui=dropdown]", value = ".filter-option",
+			list = "li", expand = ".caret")
+public static Droplist colors;
+
+
+@Test
+public void complexTest() {
+    metalAndColorsPage.shouldBeOpened();
+    metalAndColorsPage.colors.select(Green);
+}
+```
 Suppose we have 'Colors' dropdown presented in the picture. It looks like this in HTML code:
+
 ![Dropdown HTML](../images/dropdown_html.png)
 
 Here is the list of some available methods:
