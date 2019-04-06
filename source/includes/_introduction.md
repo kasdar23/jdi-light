@@ -196,7 +196,7 @@ And of course you can chain this matchers for multiple conditions validation<br/
 - And with JDi no more waits or flaky tests with errors <br/>
 JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr <br/>
 **Really useful, do you agree?**
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### 6. Custom elements
 
@@ -233,5 +233,8 @@ See examples in code <br/>
 <a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-performance/src/main/java/org/mytests/uiobjects/example/site/sections/ContactForm.java' target="_blank">Contact Form</a>
 
 ## Start new project with JDI
+You can Start new Test Automation Project with JDI in seconds
+Just download one the templates from <a href='https://github.com/jdi-templates' target="_blank">Github > jdi-light</a> <br/>
+
 ## How to improve your Selenium project with new capabilities in few minutes
 ## Logging and Reporting
