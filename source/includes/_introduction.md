@@ -233,8 +233,11 @@ See examples in code <br/>
 <a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-performance/src/main/java/org/mytests/uiobjects/example/site/sections/ContactForm.java' target="_blank">Contact Form</a>
 
 ## Start new project with JDI
-You can Start new Test Automation Project with JDI in seconds
+You can Start new Test Automation Project with JDI in seconds <br/>
 Just download one the templates from <a href='https://github.com/jdi-templates' target="_blank">Github > jdi-light</a> <br/>
+<a href='https://github.com/jdi-templates/jdi-light-testng-template' target="_blank">Java + Allure + TestNg (recommended)</a> <br/>
+<a href='https://github.com/jdi-templates/jdi-light-junit-template' target="_blank">Java + Allure + JUnit</a> <br/>
+<a href='https://github.com/jdi-templates/jdi-light-csharp-template' target="_blank">CSharp + NUnit</a> <br/>
 
 ## How to improve your Selenium project with new capabilities in few minutes
 ## Logging and Reporting
