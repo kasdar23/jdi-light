@@ -234,10 +234,16 @@ See examples in code <br/>
 
 ## Start new project with JDI
 You can Start new Test Automation Project with JDI in seconds <br/>
-Just download one the templates from <a href='https://github.com/jdi-templates' target="_blank">Github > jdi-light</a> <br/>
-<a href='https://github.com/jdi-templates/jdi-light-testng-template' target="_blank">Java + Allure + TestNg (recommended)</a> <br/>
-<a href='https://github.com/jdi-templates/jdi-light-junit-template' target="_blank">Java + Allure + JUnit</a> <br/>
-<a href='https://github.com/jdi-templates/jdi-light-csharp-template' target="_blank">CSharp + NUnit</a> <br/>
+Just download one the templates from <a href='https://github.com/jdi-templates' target="_blank">Github > jdi-light-...</a> <br/>
+
+### Java + Allure + TestNg (recommended)
+<a href='https://github.com/jdi-templates/jdi-light-testng-template' target="_blank">Github link</a> <br/>
+### Java + Allure + JUnit
+<a href='https://github.com/jdi-templates/jdi-light-junit-template' target="_blank">Github link</a> <br/>
+
+### CSharp + NUnit
+<a href='https://github.com/jdi-templates/jdi-light-csharp-template' target="_blank">Github link</a> <br/>
+
 
 ## How to improve your Selenium project with new capabilities in few minutes
 ## Logging and Reporting
