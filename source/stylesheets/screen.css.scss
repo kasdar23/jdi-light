@@ -183,6 +183,7 @@ html, body {
   .toc-h2.h3 {
     padding-left: $nav-padding + $nav-indent + $nav-indent;
     font-size: 12px;
+    background-color: $nav-h3-bg;
   }
   
   .toc-footer {
