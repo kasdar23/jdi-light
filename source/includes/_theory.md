@@ -13,6 +13,7 @@ TBD
 <button id="submit-button">
 ```
 ```csharp
+
 public class UserCard : Form<User>
 {
     [FindBy(Css = "#name")]
@@ -39,7 +40,35 @@ public class UserCard : Form<User>
     TextField LastName;
     Button SubmitButton;
 }
+
 ```
+
+```java
+
+public class UserCard extends Form<User> {
+    @Css("#name") TextField name;
+    
+    @Css("#last-name") TextField lastName; 
+    
+    @Css("#submit-button") Button submitButton; 
+}
+
+If Smart locator rule is id:
+    WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
+    
+and convertation rule is hyphen to java name:
+    WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
+
+So you can write:
+
+public class UserCard extends Form<User> {
+    TextField name;
+    TextField lastName;
+    Button submitButton; 
+}
+
+```
+
 
 If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.
 
