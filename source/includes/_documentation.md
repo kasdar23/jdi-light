@@ -45,6 +45,22 @@ Here is the list of some available methods:
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)
 
 ### DropDown
+```java
+public Dropdown colors;
+
+@CSS("#colors") public Dropdown colors;
+
+public Dropdown colors = dropdown("#colors");
+
+public Dropdown colors = $d("#colors");
+
+
+@Test
+public void colorsTest() {
+    colors.select(Green);
+    assertEquals(colors.selected(), Green);
+}
+```
 
 ```csharp 
 [Test]
@@ -77,25 +93,7 @@ There are two types that can be used for dropdown representation, they are:
 
 Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with Dropdown elements.
 
-```java
-public Dropdown colors;
-
-@CSS("#colors") public Dropdown colors;
-
-public Dropdown colors = dropdown("#colors");
-
-public Dropdown colors = $d("#colors");
-
-
-@Test
-public void colorsTest() {
-    colors.select(Green);
-    assertEquals(colors.selected(), Green);
-}
-```
-
 For HTML5 elements Dropdown lists are also supported in JDI light.
-
 Consider an example of HTML5 dropdown with a given HTML code:
 
 ```java
