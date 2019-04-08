@@ -118,7 +118,8 @@ Here is the list of some available methods:
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs)
 
-#### JDI Dropdown annotation
+__JDI Dropdown annotation__
+
 For better use JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation consists of the following elements:
 
  - __*root()*__ - value of this element points to the root locator of dropdown element
