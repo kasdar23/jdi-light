@@ -6,7 +6,54 @@ TBD
 TBD
 
 ## Smart Locators
-TBD
+
+```
+<input type="text" id="name">
+<input type="text" id="last-name">
+<button id="submit-button">
+```
+```csharp
+public class UserCard : Form<User>
+{
+    [FindBy(Css = "#name")]
+    TextField Name; 
+    
+    [FindBy(Css = "#last-name")]
+    TextField LastName;
+    
+    [FindBy(Css = "#submit-button")]
+    Button SubmitButton;
+}
+
+If Smart locator rule is id:
+    SmartSearchLocator = "#{0}";
+    
+and convertation rule is hyphen to csharp name:
+    SmartSearchName(string name) => StringExtensions.SplitHyphen(name);
+    
+So you can write:
+
+public class UserCard : Form<User>
+{
+    TextField Name; 
+    TextField LastName;
+    Button SubmitButton;
+}
+```
+
+If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.
+
+You can manage how to create locator from field name using.
+
+### Settings interface ISmartLocators contains:
+  
+- **SmartSearch** - method that invoked if you have element has no locator
+
+- **SmartSearchLocator** - locator that can be used to try to find element
+
+- **SmartSearchName** -  method how to create locator name from filed name (this value will be passed as parameter in SmartSearchLocator)
+
+
 
 ## JDI Locators (simple as css powerful as xpath)
 TBD
