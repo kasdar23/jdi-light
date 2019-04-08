@@ -305,6 +305,11 @@
                   </li>
                   <li>
                     <a href="#smart-locators" class="toc-h2 toc-link" data-title="Smart Locators">Smart Locators</a>
+                        <ul class="toc-list-h2">
+                            <li>
+                              <a href="#settings-interface-ismartlocators-contains" class="toc-h2 h3 toc-link" data-title="Settings interface ISmartLocators contains:">Settings interface ISmartLocators contains:</a>
+                            </li>
+                        </ul>
                   </li>
                   <li>
                     <a href="#jdi-locators-simple-as-css-powerful-as-xpath" class="toc-h2 toc-link" data-title="JDI Locators (simple as css powerful as xpath)">JDI Locators (simple as css powerful as xpath)</a>
@@ -691,8 +696,45 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <p>TBD</p>
 <h2 id='entity-driven-testing'>Entity Driven Testing</h2>
 <p>TBD</p>
-<h2 id='smart-locators'>Smart Locators</h2>
-<p>TBD</p>
+<h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
+&lt;input type="text" id="last-name"&gt;
+&lt;button id="submit-button"&gt;
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#name"</span><span class="p">)]</span>
+    <span class="n">TextField</span> <span class="n">Name</span><span class="p">;</span> 
+
+    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#last-name"</span><span class="p">)]</span>
+    <span class="n">TextField</span> <span class="n">LastName</span><span class="p">;</span>
+
+    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#submit-button"</span><span class="p">)]</span>
+    <span class="n">Button</span> <span class="n">SubmitButton</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="k">is</span> <span class="n">id</span><span class="p">:</span>
+    <span class="n">SmartSearchLocator</span> <span class="p">=</span> <span class="s">"#{0}"</span><span class="p">;</span>
+
+<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="k">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">csharp</span> <span class="n">name</span><span class="p">:</span>
+    <span class="nf">SmartSearchName</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">StringExtensions</span><span class="p">.</span><span class="nf">SplitHyphen</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+
+<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span><span class="p">:</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="n">TextField</span> <span class="n">Name</span><span class="p">;</span> 
+    <span class="n">TextField</span> <span class="n">LastName</span><span class="p">;</span>
+    <span class="n">Button</span> <span class="n">SubmitButton</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<p>If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.</p>
+
+<p>You can manage how to create locator from field name using.</p>
+<h3 id='settings-interface-ismartlocators-contains'>Settings interface ISmartLocators contains:</h3>
+<ul>
+<li><p><strong>SmartSearch</strong> - method that invoked if you have element has no locator</p></li>
+<li><p><strong>SmartSearchLocator</strong> - locator that can be used to try to find element</p></li>
+<li><p><strong>SmartSearchName</strong> -  method how to create locator name from filed name (this value will be passed as parameter in SmartSearchLocator)</p></li>
+</ul>
 <h2 id='jdi-locators-simple-as-css-powerful-as-xpath'>JDI Locators (simple as css powerful as xpath)</h2>
 <p>TBD</p>
 <h1 id='faq'>FAQ</h1>
