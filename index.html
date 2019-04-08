@@ -699,7 +699,8 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;
 &lt;button id="submit-button"&gt;
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#name"</span><span class="p">)]</span>
     <span class="n">TextField</span> <span class="n">Name</span><span class="p">;</span> 
@@ -725,6 +726,30 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
     <span class="n">TextField</span> <span class="n">LastName</span><span class="p">;</span>
     <span class="n">Button</span> <span class="n">SubmitButton</span><span class="p">;</span>
 <span class="p">}</span>
+
+</code></pre><pre class="highlight java tab-java"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#last-name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span> 
+
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#submit-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
+<span class="o">}</span>
+
+<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="n">is</span> <span class="nl">id:</span>
+    <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_LOCATORS</span> <span class="o">=</span> <span class="n">asList</span><span class="o">(</span><span class="s">"#%s"</span><span class="o">);</span>
+
+<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">java</span> <span class="nl">name:</span>
+    <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_NAME</span> <span class="o">=</span> <span class="nl">StringUtils:</span><span class="o">:</span><span class="n">splitHyphen</span><span class="o">;</span>
+
+<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="nl">write:</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+    <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
+<span class="o">}</span>
+
 </code></pre>
 <p>If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.</p>
 
