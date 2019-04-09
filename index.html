@@ -278,10 +278,52 @@
             <a href="#tutorial" class="toc-h1 toc-link" data-title="Tutorial">Tutorial</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#first-login-test" class="toc-h2 toc-link" data-title="First Login Test">First Login Test</a>
+                    <a href="#integration" class="toc-h2 toc-link" data-title="Integration">Integration</a>
+                        <ul class="toc-list-h2">
+                            <li>
+                              <a href="#maven-dependencies" class="toc-h2 h3 toc-link" data-title="Maven Dependencies">Maven Dependencies</a>
+                            </li>
+                            <li>
+                              <a href="#configuration" class="toc-h2 h3 toc-link" data-title="Configuration">Configuration</a>
+                            </li>
+                        </ul>
                   </li>
                   <li>
-                    <a href="#fill-complex-contact-form" class="toc-h2 toc-link" data-title="Fill complex Contact form">Fill complex Contact form</a>
+                    <a href="#simple-test-example" class="toc-h2 toc-link" data-title="Simple Test Example">Simple Test Example</a>
+                  </li>
+                  <li>
+                    <a href="#fill-contact-form-example" class="toc-h2 toc-link" data-title="Fill Contact Form Example">Fill Contact Form Example</a>
+                        <ul class="toc-list-h2">
+                            <li>
+                              <a href="#scenario" class="toc-h2 h3 toc-link" data-title="Scenario">Scenario</a>
+                            </li>
+                            <li>
+                              <a href="#create-pageobjects" class="toc-h2 h3 toc-link" data-title="Create PageObjects">Create PageObjects</a>
+                            </li>
+                            <li>
+                              <a href="#create-test-data" class="toc-h2 h3 toc-link" data-title="Create Test Data">Create Test Data</a>
+                            </li>
+                            <li>
+                              <a href="#init-page-objects-and-open-baeldungsite-site" class="toc-h2 h3 toc-link" data-title="Init Page Objects and Open BaeldungSite site">Init Page Objects and Open BaeldungSite site</a>
+                            </li>
+                            <li>
+                              <a href="#write-test-scenario" class="toc-h2 h3 toc-link" data-title="Write test scenario">Write test scenario</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#test-run-results" class="toc-h2 toc-link" data-title="Test run results">Test run results</a>
+                        <ul class="toc-list-h2">
+                            <li>
+                              <a href="#test-scenario-and-log" class="toc-h2 h3 toc-link" data-title="Test scenario and log">Test scenario and log</a>
+                            </li>
+                            <li>
+                              <a href="#page-object-actions-with-elements-handle-flaky-tests" class="toc-h2 h3 toc-link" data-title="Page Object actions with elements. Handle flaky tests">Page Object actions with elements. Handle flaky tests</a>
+                            </li>
+                            <li>
+                              <a href="#failed-exceptions-and-allure-reports" class="toc-h2 h3 toc-link" data-title="Failed exceptions and Allure reports">Failed exceptions and Allure reports</a>
+                            </li>
+                        </ul>
                   </li>
                   <li>
                     <a href="#create-custom-controls" class="toc-h2 toc-link" data-title="Create Custom controls">Create Custom controls</a>
@@ -682,10 +724,182 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <p><a href='https://github.com/jdi-templates/jdi-light-junit-template' target="_blank">Github link</a> <br/></p>
 <h3 id='csharp-nunit'>CSharp + NUnit</h3>
 <p><a href='https://github.com/jdi-templates/jdi-light-csharp-template' target="_blank">Github link</a> <br/></p>
-<h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1><h2 id='first-login-test'>First Login Test</h2>
-<p>TBD</p>
-<h2 id='fill-complex-contact-form'>Fill complex Contact form</h2>
-<p>TBD</p>
+<h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1><h2 id='integration'>Integration</h2>
+<p>This article is a quick, practical introduction to working with <a href="https://github.com/jdi-testing/jdi-light">JDI Light</a>.<br/>
+In this section, we’ll start with a simple scenario – opening a browser window, navigating to a given URL and looking for some desired content on the page.<br/></p>
+<h3 id='maven-dependencies'>Maven Dependencies</h3>
+<p>In the pom.xml file, add the following dependency:</p>
+<pre class="highlight java tab-java"><code><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">epam</span><span class="o">.</span><span class="na">jdi</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jdi</span><span class="o">-</span><span class="n">light</span><span class="o">-</span><span class="n">html</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</code></pre>
+<p>The latest version can be found in the <a href="https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light">Maven Central Repository</a>.</p>
+<h3 id='configuration'>Configuration</h3>
+<p>To run tests in JDI you don’t need to setup anything. By default JDI will download Chrome driver automatically, setup it and run while you try to access some page.<br/>
+But if you would like to change default settings you can do this in test.properties file (src/test/resources). Here some typical settings.<br/></p>
+<pre class="highlight java tab-java"><code><span class="n">driver</span><span class="o">=</span><span class="n">chrome</span>
+<span class="err">#</span><span class="n">drivers</span><span class="o">.</span><span class="na">version</span><span class="o">=</span><span class="mf">2.23</span> <span class="o">|</span> <span class="n">LATEST</span><span class="err">–</span> <span class="n">by</span> <span class="k">default</span> <span class="n">latest</span>
+<span class="err">#</span><span class="n">timeout</span><span class="o">.</span><span class="na">wait</span><span class="o">.</span><span class="na">element</span><span class="o">=</span><span class="mi">10</span> <span class="err">–</span> <span class="n">timeout</span> <span class="n">in</span> <span class="n">seconds</span> <span class="n">to</span> <span class="n">wait</span> <span class="n">element</span> <span class="n">on</span> <span class="n">opened</span> <span class="n">page</span>
+<span class="err">#</span><span class="n">timeout</span><span class="o">.</span><span class="na">wait</span><span class="o">.</span><span class="na">page</span><span class="o">=</span><span class="mi">60</span> <span class="err">–</span> <span class="n">timeout</span> <span class="n">in</span> <span class="n">seconds</span> <span class="n">to</span> <span class="n">open</span> <span class="n">a</span> <span class="k">new</span> <span class="n">page</span>
+<span class="n">domain</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//epam.github.io/JDI/ – web application (used if you work with one application in tests)</span>
+<span class="err">#</span><span class="n">page</span><span class="o">.</span><span class="na">check</span><span class="o">.</span><span class="na">after</span><span class="o">.</span><span class="na">open</span><span class="o">=</span><span class="n">NONE</span> <span class="err">–</span> <span class="n">no</span> <span class="n">auto</span><span class="o">-</span><span class="n">validation</span> <span class="o">|</span> <span class="n">NEW_PAGE</span> <span class="err">–</span> <span class="n">will</span> <span class="n">validate</span> <span class="n">page</span> <span class="n">url</span> <span class="n">and</span> <span class="n">titile</span> <span class="n">utomatically</span> <span class="k">while</span> <span class="k">new</span> <span class="n">page</span> <span class="n">opens</span> <span class="o">|</span> <span class="n">EVERY_PAGE</span> <span class="err">–</span> <span class="n">validate</span> <span class="n">page</span> <span class="n">on</span> <span class="n">each</span> <span class="n">action</span>
+<span class="err">#</span><span class="n">page</span><span class="o">.</span><span class="na">load</span><span class="o">.</span><span class="na">strategy</span><span class="o">=</span><span class="n">normal</span> <span class="err">–</span> <span class="n">how</span> <span class="n">to</span> <span class="n">wait</span> <span class="n">page</span> <span class="n">load</span>
+<span class="err">#</span><span class="n">element</span><span class="o">.</span><span class="na">search</span><span class="o">.</span><span class="na">strategy</span><span class="o">=</span><span class="n">strict</span> <span class="o">|</span> <span class="n">soft</span> <span class="o">|</span> <span class="n">visible</span><span class="o">,</span> <span class="n">multiple</span> <span class="o">|</span> <span class="n">any</span><span class="o">,</span> <span class="n">single</span> <span class="err">–</span> <span class="n">how</span> <span class="n">to</span> <span class="n">find</span> <span class="n">element</span>
+<span class="err">#</span><span class="n">browser</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="n">MAXIMIZE</span> <span class="o">|</span> <span class="mi">1024</span><span class="n">x762</span>
+</code></pre><h2 id='simple-test-example'>Simple Test Example</h2>
+<p>Simple test to open http://www.baeldung.com/ site will look like this: </p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JDILightExample</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="nf">openPage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">WebPage</span><span class="o">.</span><span class="na">openUrl</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>You also can do all typical actions with browser using WebPage static methods like: getUrl(), getTitle(), back(), forward(), getHtml(), refresh();<br/>
+And not so typical like scroll up/down/left/right/top/bottom and zoom the page.<br/>
+<br/>
+But if you would like to operate with pages we recommend to create PageObject for it:<br/></p>
+<pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SiteJdi</span> <span class="o">{</span>
+    <span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Baeldung | Java, Spring and Web Development tutorials"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>Pretty simple and obvious isn’t it? Now we can open home page in one line after that we can validate that correct page opened (will throw exception if action failed).<br/>
+<br/>
+Additional option is to use method shouldBeOpened() that validate if page is already opened and if not will open it. This smart action can save your tests time.<br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageObjectExample</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openPage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">homePage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+        <span class="n">homePage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
+        <span class="c1">//...</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onHomePage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">homePage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
+        <span class="c1">//...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p><em>*I hope you awareness enough and interested about TestInit class. This is just simple one method interface that initialize all PageObjects (HomePage in our case) in one line.</em><br/>
+<em>Yes with JDI Light you can do it in one line for all your Page Objects!</em><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TestsInit</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">PageFactory</span><span class="o">.</span><span class="na">initElements</span><span class="o">(</span><span class="n">SiteJdi</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><h2 id='fill-contact-form-example'>Fill Contact Form Example</h2><h3 id='scenario'>Scenario</h3>
+<p>Now let’s look on more complex case:
+1. Open Baeldung
+2. Go to Contact page
+3. Fill Contact Form
+4. And validate that data in form is correct
+<em>* Thanks to captcha we will not sent the form in this case but in your test application you can switch off captcha and validate filled form on next page for example or in DB</em><br/></p>
+<h3 id='create-pageobjects'>Create PageObjects</h3>
+<p>First we need to create 2 Page Objects: HomePage – from previous example and ContactPage with fields and button on it</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"Baeldung | Java"</span><span class="o">,</span> <span class="n">validate</span> <span class="o">=</span> <span class="n">CONTAINS</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span> <span class="o">}</span>
+
+<span class="nd">@Url</span><span class="o">(</span><span class="s">"/contact"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Contact Me | Baeldung"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"[name=first_name]"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"[name=email]"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">email</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"[name=message]"</span><span class="o">)</span> <span class="n">TextArea</span> <span class="n">message</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">xpath</span> <span class="o">=</span> <span class="s">"//*[text()='Send Your Message']"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">send</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>But standard @Findby can be simplified in JDI annotations @Css and @XPath or even with universal @UI:</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"[name=first_name]"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"[name=email]"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">email</span><span class="o">;</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"[name=message]"</span><span class="o">)</span> <span class="n">TextArea</span> <span class="n">message</span><span class="o">;</span>
+    <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//*[text()='Send Your Message']"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">send</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=first_name]"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=email]"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">email</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=message]"</span><span class="o">)</span> <span class="n">TextArea</span> <span class="n">message</span><span class="o">;</span>
+    <span class="nd">@ByText</span><span class="o">(</span><span class="s">"Send Your Message"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">send</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>In this case our Site entity will look like this:</p>
+<pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaeldungSite</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactPage</span> <span class="n">contactPage</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre><h3 id='create-test-data'>Create Test Data</h3>
+<p>We need to fill the form with some Contact information, let’s create an entity for it</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactInfo</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">ContactInfo</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">message</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>And fill it with some data:</p>
+<pre class="highlight java tab-java"><code><span class="n">ContactInfo</span> <span class="n">MY_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">email</span> <span class="o">=</span> <span class="s">"roman.iovlev.jdi@gmail.com"</span><span class="o">;</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="s">"Hi Baeldung!"</span><span class="o">;}</span> 
+<span class="o">);</span>
+</code></pre>
+<p>_* You can put you entities in separate DataProvider file or just near the test if this is one time entity.</p>
+<h3 id='init-page-objects-and-open-baeldungsite-site'>Init Page Objects and Open BaeldungSite site</h3>
+<p>Init all this pages and open home page of Baeldung site:_</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TestsInit</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">setLogLevel</span><span class="o">(</span><span class="n">STEP</span><span class="o">);</span>
+        <span class="n">initElements</span><span class="o">(</span><span class="n">BaeldungSite</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">homepage</span><span class="o">.</span><span class="na">open</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p><em>* For demo purposes we also set log level to STEP in order to have business actions level log. For more details you can change log level to INFO (by default) or DEBUG.</em><br/></p>
+<h3 id='write-test-scenario'>Write test scenario</h3>
+<p>And now we can write a test:</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactsExample</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fillContactTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">contactPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+        <span class="n">contactPage</span><span class="o">.</span><span class="na">asForm</span><span class="o">().</span><span class="na">send</span><span class="o">(</span><span class="n">MY_CONTACT</span><span class="o">);</span>
+        <span class="n">contactPage</span><span class="o">.</span><span class="na">asForm</span><span class="o">().</span><span class="na">check</span><span class="o">(</span><span class="n">MY_CONTACT</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><h2 id='test-run-results'>Test run results</h2><h3 id='test-scenario-and-log'>Test scenario and log</h3>
+<p>This simple 3 rows test will:
+- Open Baeldung site
+- Navigate to Contact Page
+- Fill contact form with your data and 
+- Validate that form filled correctly. 
+Exactly what see in test scenario. As result you will see detailed user actions log:</p>
+<pre class="highlight plaintext"><code>[ STEP 21:52.780]: Open 'Home Page'(url=http://www.baeldung.com/)
+[ STEP 21:59.008]: Open 'Contact Page'(url=http://www.baeldung.com/contact)
+[ STEP 22:00.236]: Send ContactInfo(firstName:Roman; email:roman.iovlev.jdi@gmail.com; message:Hi Baeldung!) in 'Contact Page Form'
+[ STEP 22:01.633]: Check that 'Contact Page Form' values are: ContactInfo(firstName:Roman; email:roman.iovlev.jdi@gmail.com; message:Hi Baeldung!)
+</code></pre>
+<p>Pretty much the same as test scenario do. You can share this log with BA or Client to demonstrate what your tests do.<br/>
+If you need more details for maintenance purposes, you can change the level of your log to INFO. Using log4J settings you can customize output streams and log formats.</p>
+<h3 id='page-object-actions-with-elements-handle-flaky-tests'>Page Object actions with elements. Handle flaky tests</h3>
+<p>You don’t need to implement open, send and check methods they are already developed for you (as well as a lot of other typical functions).<br/>
+In addition, you don’t need to think about Thread sleeps, Explicit waits, stale or no such element exceptions. JDI Light will handle all staff that can make tests flaky for you. You just need to think about business part of test scenarios.</p>
+<h3 id='failed-exceptions-and-allure-reports'>Failed exceptions and Allure reports</h3>
+<p>You can stop before method check execution, change some filled (e.g. firstName to “Roman (changed)”) and continue test to see that check will throw exception in case of some mismatch. And this assertion will be pretty much readable also:</p>
+<pre class="highlight plaintext"><code>Failed to execute 'check' for element 'Contact Page Form' action during '10' seconds. 
+Exception: Check form failed:
+Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
+</code></pre>
+<p>JDI has good integration with Allure so as result of this test (if Allure are in place) you can see colorful and readable report with all tests execution results:</p>
+
+<p><img src="images/tutorial/allure-test-fail.png" alt="Allure test fail" />
+- <strong>Test execution log</strong></p>
+
+<p><img src="images/tutorial/allure-results.png" alt="Allure results" />
+- <strong>Detailed test’s fail reasons information (you can click on … under error text and observe full exception stack trace)</strong></p>
+
+<p><img src="images/tutorial/allure-test-run.png" alt="Allure test run" />
+- <strong>And history of all previous tests executions</strong></p>
+
+<p><img src="images/tutorial/allure-history.png" alt="Allure history" /></p>
+
+<p>To generate such Allure report you need to copy allure-results folder from project root to target folder and run allure-serve maven plugin</p>
 <h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
