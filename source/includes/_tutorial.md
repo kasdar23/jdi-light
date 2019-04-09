@@ -2,9 +2,6 @@
 ## Integration
 This article is a quick, practical introduction to working with [JDI Light](https://github.com/jdi-testing/jdi-light).<br/>
 In this section, we’ll start with a simple scenario – opening a browser window, navigating to a given URL and looking for some desired content on the page.<br/>
-### Maven Dependencies
-In the pom.xml file, add the following dependency:
-
 ```java 
 <dependency>
     <groupId>com.epam.jdi</groupId>
@@ -12,10 +9,13 @@ In the pom.xml file, add the following dependency:
     <version>RELEASE</version>
 </dependency>
 ```
-The latest version can be found in the [Maven Central Repository](https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light).
+
+### Maven Dependencies
+
+In the pom.xml file, add the following dependency: <br/>
+The latest version can be found in the [Maven Central Repository](https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light).<br/>
+<br/><br/>
 ### Configuration
-To run tests in JDI you don’t need to setup anything. By default JDI will download Chrome driver automatically, setup it and run while you try to access some page.<br/>
-But if you would like to change default settings you can do this in test.properties file (src/test/resources). Here some typical settings.<br/>
 
 ```java
 driver=chrome
@@ -28,9 +28,10 @@ domain=https://epam.github.io/JDI/ – web application (used if you work with on
 #element.search.strategy=strict | soft | visible, multiple | any, single – how to find element
 #browser.size=MAXIMIZE | 1024x762
 ```
+To run tests in JDI you don’t need to setup anything. By default JDI will download Chrome driver automatically, setup it and run while you try to access some page.<br/>
+But if you would like to change default settings you can do this in test.properties file (src/test/resources). Here some typical settings.<br/>
+<br/><br/><br/><br/>
 ## Simple Test Example
-Simple test to open http://www.baeldung.com/ site will look like this: 
-
 ```java
 public class JDILightExample { 
     public openPage() {
@@ -38,10 +39,9 @@ public class JDILightExample {
     }
 }
 ```
-You also can do all typical actions with browser using WebPage static methods like: getUrl(), getTitle(), back(), forward(), getHtml(), refresh();<br/>
-And not so typical like scroll up/down/left/right/top/bottom and zoom the page.<br/>
-<br/>
-But if you would like to operate with pages we recommend to create PageObject for it:<br/>
+Simple test to open http://www.baeldung.com/ site will look like this: <br/>
+You also can do all typical actions with browser using WebPage static methods like: **getUrl(), getTitle(), back(), forward(), getHtml(), refresh()**<br/>
+And not so typical like **scroll up/down/left/right/top/bottom** and **zoom** the page.<br/>
 
 ```java
 @JSite("http://www.baeldung.com/")
@@ -49,12 +49,6 @@ public class SiteJdi {
     @Url("/") @Title("Baeldung | Java, Spring and Web Development tutorials")
     public static HomePage homePage;
 }
-```
-Pretty simple and obvious isn’t it? Now we can open home page in one line after that we can validate that correct page opened (will throw exception if action failed).<br/>
-<br/>
-Additional option is to use method shouldBeOpened() that validate if page is already opened and if not will open it. This smart action can save your tests time.<br/>
-
-```java
 public class PageObjectExample implements TestsInit { 
     public void openPage() {
         homePage.open();
@@ -67,8 +61,11 @@ public class PageObjectExample implements TestsInit {
     }
 }
 ```
-_*I hope you awareness enough and interested about TestInit class. This is just simple one method interface that initialize all PageObjects (HomePage in our case) in one line._<br/>
-_Yes with JDI Light you can do it in one line for all your Page Objects!_<br/>
+But if you would like to operate with pages we recommend to create PageObject for it:<br/>
+Pretty simple and obvious isn’t it? Now we can open home page in one line after that we can validate that correct page opened (will throw exception if action failed).<br/>
+<br/>
+Additional option is to use method shouldBeOpened() that validate if page is already opened and if not will open it. This smart action can save your tests time.<br/>
+<br/><br/><br/><br/><br/><br/><br/>
 
 ```java
 public interface TestsInit {
@@ -77,6 +74,9 @@ public interface TestsInit {
     }
 }
 ```
+_*I hope you awareness enough and interested about TestInit class. This is just simple one method interface that initialize all PageObjects (HomePage in our case) in one line._<br/>
+_Yes with JDI Light you can do it in one line for all your Page Objects!_<br/>
+
 ## Fill Contact Form Example
 ### Scenario
 Now let’s look on more complex case:
