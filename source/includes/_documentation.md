@@ -79,9 +79,6 @@ For better use JDI Light provides a __*@JDropdown*__ annotation to locate dropdo
  - __*list()*__ - locator representing list options
  - __*expand()*__ - locator for expanding the dropdown list
  
-
-Suppose we have 'Colors' dropdown, which looks like this in HTML code:
-
 ```java 
 @JDropdown(root = "div[ui=dropdown]",
            value = ".filter-option",
@@ -97,19 +94,22 @@ public void complexTest() {
 }
 ```
 
+Suppose we have 'Colors' dropdown, which looks like this in HTML code:
+
 ![Dropdown HTML](../images/html/dropdown_html.png) 
 
  *Note: JDropdown is implemented only in Java version, as for now*
 
 __Dropdown representation__
 
-```java
+JDI Light provides a __Droplist__ class which can be used for dropdown representation as a type of web element.
+
+Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
+
+```java 
 public Droplist colors;
-
 @CSS("#colors") public Droplist colors;
-
 public Droplist colors = dropdown("#colors");
-
 public Droplist colors = $d("#colors");
 
 
@@ -120,8 +120,6 @@ public void colorsTest() {
 }
 ```
 
-JDI Light provides a __Droplist__ class which can be used for dropdown representation. Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
-
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java)
 
 For HTML5 elements Dropdown lists are also supported in JDI light. There is a __Dropdown__ class which is more like a special case of Droplist.
@@ -129,9 +127,8 @@ This type can be used in cases when dropdown is represented with HTML _\<select>
 
 Consider an example of HTML5 dropdown with a given HTML code:
 
-```java
+```java 
 @UI("#dress-code") public Dropdown dressCode;
-
 
 @Test
 public void selectEnumTest() {
