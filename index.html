@@ -853,7 +853,6 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
            <span class="n">expand</span> <span class="o">=</span> <span class="s">".caret"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
 
-
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">complexTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
@@ -867,15 +866,10 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <p><em>Note: JDropdown is implemented only in Java version, as for now</em></p>
 
 <p><strong>Dropdown representation</strong></p>
-
-<p>JDI Light provides a <strong>Droplist</strong> class which can be used for dropdown representation as a type of web element.</p>
-
-<p>Locator simple annotations from <em>com.epam.jdi.light.elements.pageobjects.annotations.simple</em> can be used together with dropdown elements.</p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
 <span class="nd">@CSS</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
 <span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">dropdown</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
 <span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">$d</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
-
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorsTest</span><span class="o">()</span> <span class="o">{</span>
@@ -883,6 +877,10 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="n">Green</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
+<p>JDI Light provides a <strong>Droplist</strong> class which can be used for dropdown representation as a type of web element.</p>
+
+<p>Locator simple annotations from <em>com.epam.jdi.light.elements.pageobjects.annotations.simple</em> can be used together with dropdown elements.</p>
+
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java">Java test examples</a></p>
 
 <p>For HTML5 elements Dropdown lists are also supported in JDI light. There is a <strong>Dropdown</strong> class which is more like a special case of Droplist.
