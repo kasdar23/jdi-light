@@ -1,6 +1,6 @@
 # Introduction
 ## Simple JDI examples
-### 1. Create simple Login test
+### Create simple Login test
 For the beginning I would like to show you how tipycal problems can be solved with JDI. Let's start from Login, most of the tests starts from this you need to login on site.
 
 Java code example can be found by <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">link</a>
@@ -67,7 +67,7 @@ public class LoginForm extends Form<User> {
     @Css("[type=submit]") Button enter;
 }
 ```
-### 2. UI PageObjects
+### UI PageObjects
 So now let's look on PageObjects we have in JDI. In example above for "Login test" we have following PageObjects:
 * Site - entity for your application. Collects all the Pages of your application, that can be init in one command
 
@@ -93,12 +93,12 @@ public class LoginForm extends Form<User> {
     Button enter = $("[type=submit]");
 }
 ```
-### 3. Short term non Page Objects style
+### Short term non Page Objects style
 If you need to check somethhing fast and won't write Page Objects you can use simple like "JQuery/Selenide" style without any additional code
 
 You also can init your Page Objects directly with elements if don't like annotations
 <br/><br/><br/><br/><br/><br/><br/>
-### 4. Smart Test locators
+### Smart Test locators
 ```
 <input type="text" id="name">
 <input type="text" id="last-name">
@@ -180,7 +180,7 @@ public void tableChainTest() {
 		.exact(1).rows(SPIDER_MAN);
 }
 ```
-### 5. Asserts/Matchers integrated with elements
+### Asserts/Matchers integrated with elements
 
 JDI has really flexible set of matchers integrated in elements
 
@@ -198,7 +198,7 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 **Really useful, do you agree?**
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### 6. Custom elements
+### Custom elements
 
 ```java 
 public class Checklist extends HtmlElement {
