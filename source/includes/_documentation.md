@@ -46,24 +46,6 @@ Here is the list of some available methods:
 
 ### DropDown
 
-```csharp 
-[Test]
-public void SelectDropDownExample() 
-{
-    MyDropDown.Select("some value");
-}
-[Test]
-public void SelectByIndexExample() 
-{
-    MyDropDown.Select(1);
-}
-[Test]
-public void GetSelectedExample() 
-{
-    var selected = MyDropDown.GetSelected();
-    Assert.AreEqual(selected, "some value");
-}
-```
 **DropDown** – a graphical control element, that allows the user to choose one value from a list.
 
 ![DropDown](../images/dropdown.png)
@@ -93,6 +75,21 @@ public void complexTest() {
 }
 ```
 
+```csharp 
+[JDropDown(root: "#colors", 
+           value: ".filter-option", 
+           list:"li", 
+           expand:".caret")]
+public Droplist Colors;
+
+[Test]
+public void ComplexTest() 
+{
+    MetalAndColorsPage.ShouldBeOpened();
+    MetalAndColorsPage.Colors.Select(Green);
+}
+```
+
 Suppose we have 'Colors' dropdown, which looks like this in HTML code:
 
 ![Dropdown HTML](../images/html/dropdown_html.png) 
@@ -114,6 +111,19 @@ public void colorsTest() {
 }
 ```
 
+```csharp 
+public DropDown Colors;
+[FindBy(Css = "#colors")] 
+public DropDown Colors;
+
+[Test]
+public void ColorsTest() 
+{
+    Colors.Select(Green);
+    Assert.AreEquals(Colors.Selected(), Green);
+}
+```
+
 JDI Light provides a __Droplist__ class which can be used for dropdown representation as a type of web element.
 
 Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
@@ -132,6 +142,18 @@ Consider an example of HTML5 dropdown with a given HTML code:
 public void selectEnumTest() {
     dressCode.select(Fancy);
     assertEquals(dressCode.getValue(), "Fancy");
+}
+```
+
+```csharp 
+[FindBy(Css = "#dress-code")] 
+public Dropdown DressCode;
+
+[Test]
+public void SelectEnumTest() 
+{
+    DressCode.Select(Fancy);
+    Assert.AreEquals(DressCode.GetSelected(), "Fancy");
 }
 ```
 
