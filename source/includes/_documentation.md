@@ -45,22 +45,6 @@ Here is the list of some available methods:
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)
 
 ### DropDown
-```java
-public Dropdown colors;
-
-@CSS("#colors") public Dropdown colors;
-
-public Dropdown colors = dropdown("#colors");
-
-public Dropdown colors = $d("#colors");
-
-
-@Test
-public void colorsTest() {
-    colors.select(Green);
-    assertEquals(colors.selected(), Green);
-}
-```
 
 ```csharp 
 [Test]
@@ -86,18 +70,67 @@ public void GetSelectedExample()
 
 JDI Light has support for dropdown elements with its own type. There are several ways of dropdown usage in JDI Light, serving different needs.
 
-There are two types that can be used for dropdown representation, they are:
+__JDI Dropdown annotation__
 
- - __Droplist__
- - __Dropdown__ - more like a special case of Droplist.
+For better use JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation consists of the following elements:
 
-Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with Dropdown elements.
+ - __*root()*__ - value of this element points to the root locator of dropdown element
+ - __*value()*__ - locator of selected by default option in dropdown list
+ - __*list()*__ - locator representing list options
+ - __*expand()*__ - locator for expanding the dropdown list
+ 
 
-For HTML5 elements Dropdown lists are also supported in JDI light.
+Suppose we have 'Colors' dropdown, which looks like this in HTML code:
+
+```java 
+@JDropdown(root = "div[ui=dropdown]",
+           value = ".filter-option",
+           list = "li",
+           expand = ".caret")
+public Droplist colors;
+
+
+@Test
+public void complexTest() {
+    metalAndColorsPage.shouldBeOpened();
+    metalAndColorsPage.colors.select(Green);
+}
+```
+
+![Dropdown HTML](../images/html/dropdown_html.png) 
+
+ *Note: JDropdown is implemented only in Java version, as for now*
+
+__Dropdown representation__
+
+```java
+public Droplist colors;
+
+@CSS("#colors") public Droplist colors;
+
+public Droplist colors = dropdown("#colors");
+
+public Droplist colors = $d("#colors");
+
+
+@Test
+public void colorsTest() {
+    colors.select(Green);
+    assertEquals(colors.selected(), Green);
+}
+```
+
+JDI Light provides a __Droplist__ class which can be used for dropdown representation. Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java)
+
+For HTML5 elements Dropdown lists are also supported in JDI light. There is a __Dropdown__ class which is more like a special case of Droplist.
+This type can be used in cases when dropdown is represented with HTML _\<select>_ tag.
+
 Consider an example of HTML5 dropdown with a given HTML code:
 
 ```java
-@UI("#dress-code") public static Dropdown dressCode;
+@UI("#dress-code") public Dropdown dressCode;
 
 
 @Test
@@ -116,38 +149,9 @@ Here is the list of some available methods:
 **select()/Select(string/int)** |Select dropdown by value/index  | void
 **selected()/GetSelected()** |Get selected dropdown value  | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java)
 
-__JDI Dropdown annotation__
-
-For better use JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation consists of the following elements:
-
- - __*root()*__ - value of this element points to the root locator of dropdown element
- - __*value()*__ - locator of selected by default option in dropdown list
- - __*list()*__ - locator representing list options
- - __*expand()*__ - locator for expanding the dropdown list
- 
-
-Suppose we have 'Colors' dropdown, which looks like this in HTML code:
-
-```java 
-@JDropdown(root = "div[ui=dropdown]",
-           value = ".filter-option",
-           list = "li",
-           expand = ".caret")
-public static Droplist colors;
-
-
-@Test
-public void complexTest() {
-    metalAndColorsPage.shouldBeOpened();
-    metalAndColorsPage.colors.select(Green);
-}
-```
-
-![Dropdown HTML](../images/html/dropdown_html.png) 
-
- *Note: JDropdown is implemented only in Java version, as for now*
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs)
 
 ### MultiDropDown
 
