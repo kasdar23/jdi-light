@@ -10,6 +10,11 @@ TBD
 
 **RadioButton** – interface element that allows user to select one option from a predefined group.
 
+Radio buttons are represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.complex.RadioButtons_
+  - __C#__: _JDI.Light.Elements.Common.RadioButton_
+
 ```java 
 @UI("[name=colors]")
 public static RadioButtons colors;
@@ -42,10 +47,6 @@ public void GetSelected()
     Assert.AreEqual(selected, "some value");
 }
 ```
-Radio buttons are represented by the following class:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.complex.RadioButtons_
-  - __C#__: _JDI.Light.Elements.Common.RadioButton_
 
 Consider an example where each radio button is a particular color, described with given HTML code:
 
