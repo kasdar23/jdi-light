@@ -233,22 +233,22 @@
                     <a href="#simple-jdi-examples" class="toc-h2 toc-link" data-title="Simple JDI examples">Simple JDI examples</a>
                         <ul class="toc-list-h2">
                             <li>
-                              <a href="#1-create-simple-login-test" class="toc-h2 h3 toc-link" data-title="1. Create simple Login test">1. Create simple Login test</a>
+                              <a href="#create-simple-login-test" class="toc-h2 h3 toc-link" data-title="Create simple Login test">Create simple Login test</a>
                             </li>
                             <li>
-                              <a href="#2-ui-pageobjects" class="toc-h2 h3 toc-link" data-title="2. UI PageObjects">2. UI PageObjects</a>
+                              <a href="#ui-pageobjects" class="toc-h2 h3 toc-link" data-title="UI PageObjects">UI PageObjects</a>
                             </li>
                             <li>
-                              <a href="#3-short-term-non-page-objects-style" class="toc-h2 h3 toc-link" data-title="3. Short term non Page Objects style">3. Short term non Page Objects style</a>
+                              <a href="#short-term-non-page-objects-style" class="toc-h2 h3 toc-link" data-title="Short term non Page Objects style">Short term non Page Objects style</a>
                             </li>
                             <li>
-                              <a href="#4-smart-test-locators" class="toc-h2 h3 toc-link" data-title="4. Smart Test locators">4. Smart Test locators</a>
+                              <a href="#smart-test-locators" class="toc-h2 h3 toc-link" data-title="Smart Test locators">Smart Test locators</a>
                             </li>
                             <li>
-                              <a href="#5-asserts-matchers-integrated-with-elements" class="toc-h2 h3 toc-link" data-title="5. Asserts/Matchers integrated with elements">5. Asserts/Matchers integrated with elements</a>
+                              <a href="#asserts-matchers-integrated-with-elements" class="toc-h2 h3 toc-link" data-title="Asserts/Matchers integrated with elements">Asserts/Matchers integrated with elements</a>
                             </li>
                             <li>
-                              <a href="#6-custom-elements" class="toc-h2 h3 toc-link" data-title="6. Custom elements">6. Custom elements</a>
+                              <a href="#custom-elements" class="toc-h2 h3 toc-link" data-title="Custom elements">Custom elements</a>
                             </li>
                         </ul>
                   </li>
@@ -493,7 +493,7 @@
 <li>All UI elements has assertions/matchers that powered by Hamcrest and wait expected condition during timeout</li>
 <li>Easy integration with all modern Automation tools: CI (Jenkins, TC etc.), Logging (Log4j or any other slf4j based logs), Reporting (Allure or Report Portal); Browser/Devices farms (Selenium Grid, Browser Stack, Selenoid etc.), Test Runners (TestNG, JUnit) etc.</li>
 </ul>
-<h1 id='introduction'>Introduction</h1><h2 id='simple-jdi-examples'>Simple JDI examples</h2><h3 id='1-create-simple-login-test'>1. Create simple Login test</h3>
+<h1 id='introduction'>Introduction</h1><h2 id='simple-jdi-examples'>Simple JDI examples</h2><h3 id='create-simple-login-test'>Create simple Login test</h3>
 <p>For the beginning I would like to show you how tipycal problems can be solved with JDI. Let&#39;s start from Login, most of the tests starts from this you need to login on site.</p>
 
 <p>Java code example can be found by <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">link</a></p>
@@ -562,7 +562,7 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
     <span class="nd">@Css</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span>  <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@Css</span><span class="o">(</span><span class="s">"[type=submit]"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">enter</span><span class="o">;</span>
 <span class="o">}</span>
-</code></pre><h3 id='2-ui-pageobjects'>2. UI PageObjects</h3>
+</code></pre><h3 id='ui-pageobjects'>UI PageObjects</h3>
 <p>So now let&#39;s look on PageObjects we have in JDI. In example above for &quot;Login test&quot; we have following PageObjects:
 * Site - entity for your application. Collects all the Pages of your application, that can be init in one command</p>
 
@@ -587,12 +587,12 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
     <span class="n">TextField</span> <span class="n">password</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#password"</span><span class="o">);</span>
     <span class="n">Button</span> <span class="n">enter</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"[type=submit]"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><h3 id='3-short-term-non-page-objects-style'>3. Short term non Page Objects style</h3>
+</code></pre><h3 id='short-term-non-page-objects-style'>Short term non Page Objects style</h3>
 <p>If you need to check somethhing fast and won&#39;t write Page Objects you can use simple like &quot;JQuery/Selenide&quot; style without any additional code</p>
 
 <p>You also can init your Page Objects directly with elements if don&#39;t like annotations
 <br/><br/><br/><br/><br/><br/><br/></p>
-<h3 id='4-smart-test-locators'>4. Smart Test locators</h3><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
+<h3 id='smart-test-locators'>Smart Test locators</h3><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;
 &lt;input type="text" id="passport-code"&gt;
 &lt;input type="text" id="passport-number"&gt;
@@ -667,7 +667,7 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
         <span class="o">.</span><span class="na">exact</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">description</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">":VIP"</span><span class="o">))</span>
         <span class="o">.</span><span class="na">exact</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">SPIDER_MAN</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><h3 id='5-asserts-matchers-integrated-with-elements'>5. Asserts/Matchers integrated with elements</h3>
+</code></pre><h3 id='asserts-matchers-integrated-with-elements'>Asserts/Matchers integrated with elements</h3>
 <p>JDI has really flexible set of matchers integrated in elements</p>
 
 <ul>
@@ -685,7 +685,7 @@ JDI matchers handle most kinds of this problems and will pass when you expect th
 <strong>Really useful, do you agree?</strong>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/></li>
 </ul>
-<h3 id='6-custom-elements'>6. Custom elements</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
+<h3 id='custom-elements'>Custom elements</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSelected</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="nf">find</span><span class="o">(</span><span class="s">"&lt;&lt;"</span><span class="o">).</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"active"</span><span class="o">);</span>
