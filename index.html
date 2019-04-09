@@ -814,21 +814,7 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">Test examples</a></p>
 <h3 id='table'>Table</h3>
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs">Test examples</a></p>
-<h3 id='dropdown'>DropDown</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">colors</span><span class="o">;</span>
-
-<span class="nd">@CSS</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">colors</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">dropdown</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
-
-<span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">$d</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
-
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorsTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="n">Green</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<h3 id='dropdown'>DropDown</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDropDownExample</span><span class="p">()</span> 
 <span class="p">{</span>
     <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
@@ -851,18 +837,60 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 
 <p>JDI Light has support for dropdown elements with its own type. There are several ways of dropdown usage in JDI Light, serving different needs.</p>
 
-<p>There are two types that can be used for dropdown representation, they are:</p>
+<p><strong>JDI Dropdown annotation</strong></p>
+
+<p>For better use JDI Light provides a <strong><em>@JDropdown</em></strong> annotation to locate dropdown elements. This annotation consists of the following elements:</p>
 
 <ul>
-<li><strong>Droplist</strong></li>
-<li><strong>Dropdown</strong> - more like a special case of Droplist.</li>
+<li><strong><em>root()</em></strong> - value of this element points to the root locator of dropdown element</li>
+<li><strong><em>value()</em></strong> - locator of selected by default option in dropdown list</li>
+<li><strong><em>list()</em></strong> - locator representing list options</li>
+<li><strong><em>expand()</em></strong> - locator for expanding the dropdown list</li>
 </ul>
 
-<p>Locator simple annotations from <em>com.epam.jdi.light.elements.pageobjects.annotations.simple</em> can be used together with Dropdown elements.</p>
+<p>Suppose we have &#39;Colors&#39; dropdown, which looks like this in HTML code:</p>
+<pre class="highlight java tab-java"><code><span class="nd">@JDropdown</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"div[ui=dropdown]"</span><span class="o">,</span>
+           <span class="n">value</span> <span class="o">=</span> <span class="s">".filter-option"</span><span class="o">,</span>
+           <span class="n">list</span> <span class="o">=</span> <span class="s">"li"</span><span class="o">,</span>
+           <span class="n">expand</span> <span class="o">=</span> <span class="s">".caret"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
 
-<p>For HTML5 elements Dropdown lists are also supported in JDI light.
-Consider an example of HTML5 dropdown with a given HTML code:</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#dress-code"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Dropdown</span> <span class="n">dressCode</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">complexTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
+    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/html/dropdown_html.png" alt="Dropdown HTML" /> </p>
+
+<p><em>Note: JDropdown is implemented only in Java version, as for now</em></p>
+
+<p><strong>Dropdown representation</strong></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
+
+<span class="nd">@CSS</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">dropdown</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
+
+<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">$d</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
+
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="n">Green</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>JDI Light provides a <strong>Droplist</strong> class which can be used for dropdown representation. Locator simple annotations from <em>com.epam.jdi.light.elements.pageobjects.annotations.simple</em> can be used together with dropdown elements.</p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java">Java test examples</a></p>
+
+<p>For HTML5 elements Dropdown lists are also supported in JDI light. There is a <strong>Dropdown</strong> class which is more like a special case of Droplist.
+This type can be used in cases when dropdown is represented with HTML <em>&lt;select&gt;</em> tag.</p>
+
+<p>Consider an example of HTML5 dropdown with a given HTML code:</p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#dress-code"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">dressCode</span><span class="o">;</span>
 
 
 <span class="nd">@Test</span>
@@ -894,36 +922,9 @@ Consider an example of HTML5 dropdown with a given HTML code:</p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs">Test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java">Java test examples</a></p>
 
-<p><strong>JDI Dropdown annotation</strong></p>
-
-<p>For better use JDI Light provides a <strong><em>@JDropdown</em></strong> annotation to locate dropdown elements. This annotation consists of the following elements:</p>
-
-<ul>
-<li><strong><em>root()</em></strong> - value of this element points to the root locator of dropdown element</li>
-<li><strong><em>value()</em></strong> - locator of selected by default option in dropdown list</li>
-<li><strong><em>list()</em></strong> - locator representing list options</li>
-<li><strong><em>expand()</em></strong> - locator for expanding the dropdown list</li>
-</ul>
-
-<p>Suppose we have &#39;Colors&#39; dropdown, which looks like this in HTML code:</p>
-<pre class="highlight java tab-java"><code><span class="nd">@JDropdown</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"div[ui=dropdown]"</span><span class="o">,</span>
-           <span class="n">value</span> <span class="o">=</span> <span class="s">".filter-option"</span><span class="o">,</span>
-           <span class="n">list</span> <span class="o">=</span> <span class="s">"li"</span><span class="o">,</span>
-           <span class="n">expand</span> <span class="o">=</span> <span class="s">".caret"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
-
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">complexTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
-    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre>
-<p><img src="images/html/dropdown_html.png" alt="Dropdown HTML" /> </p>
-
-<p><em>Note: JDropdown is implemented only in Java version, as for now</em></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs">C# test examples</a></p>
 <h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandMultiDropdown</span><span class="p">()</span>
