@@ -116,8 +116,6 @@ Suppose we have 'Colors' dropdown, which looks like this in HTML code:
 
 ![Dropdown HTML](../images/html/dropdown_html.png) 
 
- *Note: JDropdown is implemented only in Java version, as for now*
-
 __Dropdown representation__
 
 ```java 
@@ -195,14 +193,18 @@ Here is the list of some available methods:
 ### MultiDropDown
 
 ```java 
-TBD
+public static MultiSelect multiDropdown;
+@UI("#multi-dropdown") public static MultiSelect multiDropdown;
+
+@Test
+public void selectTest() {
+    multiDropdown.check(Wood, Steam);
+    assertEquals(multiDropdown.checked(), asList("Steam", "Wood"));
+}
 ```
 ```csharp 
-[Test]
-public void ExpandMultiDropdown()
-{
-    TestSite.Html5Page.MultiDropdown.Expand();
-}
+[FindBy(Css = "#multi-dropdown")]
+public MultiDropdown MultiDropdown { get; set; }
 
 [Test]
 public void SelectMultipleOptions()
@@ -210,38 +212,41 @@ public void SelectMultipleOptions()
     var optionsList = new List<string> { "Steam", "Electro" };
     TestSite.Html5Page.MultiDropdown.SelectOptions(optionsList);
 }
-
-[Test]
-public void CheckOptionExists()
-{
-    TestSite.Html5Page.MultiDropdown.Expand();
-    Jdi.Assert.IsTrue(TestSite.Html5Page.MultiDropdown.OptionExists("Steam"));
-}
-
-[Test]
-public void CheckOptionIsDisabled()
-{
-    TestSite.Html5Page.MultiDropdown.Expand();
-    Jdi.Assert.IsFalse(TestSite.Html5Page.MultiDropdown.OptionIsEnabled("Disabled"));
-}
 ```
+
 **MultiDropDown** – a graphical control element, that allows the user to choose several values from a list.
 
 ![DropDown](../images/multidropdown.png)
 
-Here is the list of some available methods:
+Multi dropdown elements can be described by the following class:
+
+ - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelect_
+ - __C#__: _JDI.Light.Elements.Composite.MultiDropdown_
+
+Here is the list of some available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **OptionIsEnabled(string)** |Check whether option is enabled  | bool
-**SelectOptionByname(string)** |Select specified option  | void
+**SelectOption(string)** |Select specified option  | void
 **GetSelectedOptions()** |Get selected options  | List
 **SelectOptions(List)** |Select specified options  | void
 **OptionExists(string)** |Check whether option exists in list  | bool
 **Expand()** |Expand list  | void
 **Close()** |Close expanded list  | void
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)
+The list of available methods for Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
+**uncheck(String.../Enum.../int...)** | Unselect values in multi dropdown | void
+**selected()** | Get selected value by default | String
+**checked()** | Get selected values | List<String>
+
+[Java text examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)
 
 ### DataList
 ```java 
