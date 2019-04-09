@@ -7,8 +7,22 @@ TBD
 
 ## Complex elements
 ### RadioButton
+
+**RadioButton** – interface element that allows user to select one option from a predefined group.
+
 ```java 
-TBD
+@UI("[name=colors]")
+public static RadioButtons colors;
+
+public static RadioButtons colorsNoLocator;
+
+@Test
+public void selectTest() {
+    colors.select(Blue);
+    assertEquals(colors.getValue(), "Blue");
+    colorsNoLocator.select(Red);
+    colorsNoLocator.is().selected(Red);
+}
 ```
 ```csharp 
 [Test]
@@ -28,18 +42,25 @@ public void GetSelected()
     Assert.AreEqual(selected, "some value");
 }
 ```
-**RadioButton** – interface element that allows user to select one option from a predefined group.
+Radio buttons are represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.complex.RadioButtons_
+  - __C#__: _JDI.Light.Elements.Common.RadioButton_
 
-![RadioButton](../images/radiobutton.png)
+Consider an example where each radio button is a particular color, described with given HTML code:
+
+![RadioButton](../images/html/radio_html.png)
 
 Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Select(string/int)** |Select radiobutton by value/index  | void
-**GetSelected()** |Get selected radiobutton value  | string
+**select(String/int/Enum)/Select(string/int)** |Select radiobutton by value/index  | void
+**selected()/GetSelected()** |Get selected radiobutton value  | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs)
+[Java text examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs)
 
 ### Table
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)
