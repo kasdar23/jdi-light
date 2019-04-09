@@ -814,23 +814,7 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">Test examples</a></p>
 <h3 id='table'>Table</h3>
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs">Test examples</a></p>
-<h3 id='dropdown'>DropDown</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDropDownExample</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndexExample</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelectedExample</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyDropDown</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
+<h3 id='dropdown'>DropDown</h3>
 <p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
 
 <p><img src="images/dropdown.png" alt="DropDown" /></p>
@@ -858,6 +842,18 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
     <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
     <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="p">[</span><span class="nf">JDropDown</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="s">"#colors"</span><span class="p">,</span> 
+           <span class="k">value</span><span class="p">:</span> <span class="s">".filter-option"</span><span class="p">,</span> 
+           <span class="n">list</span><span class="p">:</span><span class="s">"li"</span><span class="p">,</span> 
+           <span class="n">expand</span><span class="p">:</span><span class="s">".caret"</span><span class="p">)]</span>
+<span class="k">public</span> <span class="n">Droplist</span> <span class="n">Colors</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ComplexTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MetalAndColorsPage</span><span class="p">.</span><span class="nf">ShouldBeOpened</span><span class="p">();</span>
+    <span class="n">MetalAndColorsPage</span><span class="p">.</span><span class="n">Colors</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Green</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre>
 <p>Suppose we have &#39;Colors&#39; dropdown, which looks like this in HTML code:</p>
 
@@ -876,6 +872,16 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
     <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="n">Green</span><span class="o">);</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="n">DropDown</span> <span class="n">Colors</span><span class="p">;</span>
+<span class="na">[FindBy(Css = "#colors")]</span> 
+<span class="k">public</span> <span class="n">DropDown</span> <span class="n">Colors</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ColorsTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">Colors</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Green</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(),</span> <span class="n">Green</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre>
 <p>JDI Light provides a <strong>Droplist</strong> class which can be used for dropdown representation as a type of web element.</p>
 
@@ -894,6 +900,15 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
     <span class="n">dressCode</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Fancy</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">dressCode</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Fancy"</span><span class="o">);</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#dress-code")]</span> 
+<span class="k">public</span> <span class="n">Dropdown</span> <span class="n">DressCode</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectEnumTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">DressCode</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Fancy</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">DressCode</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">(),</span> <span class="s">"Fancy"</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre>
 <p><img src="images/html/dropdown_html5.png" alt="Dropdown HTML5" /></p>
 
