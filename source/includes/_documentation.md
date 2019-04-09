@@ -86,7 +86,6 @@ For better use JDI Light provides a __*@JDropdown*__ annotation to locate dropdo
            expand = ".caret")
 public Droplist colors;
 
-
 @Test
 public void complexTest() {
     metalAndColorsPage.shouldBeOpened();
@@ -102,16 +101,11 @@ Suppose we have 'Colors' dropdown, which looks like this in HTML code:
 
 __Dropdown representation__
 
-JDI Light provides a __Droplist__ class which can be used for dropdown representation as a type of web element.
-
-Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
-
 ```java 
 public Droplist colors;
 @CSS("#colors") public Droplist colors;
 public Droplist colors = dropdown("#colors");
 public Droplist colors = $d("#colors");
-
 
 @Test
 public void colorsTest() {
@@ -119,6 +113,10 @@ public void colorsTest() {
     assertEquals(colors.selected(), Green);
 }
 ```
+
+JDI Light provides a __Droplist__ class which can be used for dropdown representation as a type of web element.
+
+Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java)
 
