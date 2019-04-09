@@ -1097,8 +1097,6 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><img src="images/html/dropdown_html.png" alt="Dropdown HTML" /> </p>
 
-<p><em>Note: JDropdown is implemented only in Java version, as for now</em></p>
-
 <p><strong>Dropdown representation</strong></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
 <span class="nd">@CSS</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
@@ -1174,12 +1172,16 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs">C# test examples</a></p>
-<h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandMultiDropdown</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-<span class="p">}</span>
+<h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">multiDropdown</span><span class="o">;</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#multi-dropdown"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">multiDropdown</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">multiDropdown</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">Wood</span><span class="o">,</span> <span class="n">Steam</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">multiDropdown</span><span class="o">.</span><span class="na">checked</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Steam"</span><span class="o">,</span> <span class="s">"Wood"</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#multi-dropdown")]</span>
+<span class="k">public</span> <span class="n">MultiDropdown</span> <span class="n">MultiDropdown</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SelectMultipleOptions</span><span class="p">()</span>
@@ -1187,26 +1189,19 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
     <span class="kt">var</span> <span class="n">optionsList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span><span class="p">,</span> <span class="s">"Electro"</span> <span class="p">};</span>
     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="n">optionsList</span><span class="p">);</span>
 <span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionExists</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionExists</span><span class="p">(</span><span class="s">"Steam"</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionIsDisabled</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionIsEnabled</span><span class="p">(</span><span class="s">"Disabled"</span><span class="p">));</span>
-<span class="p">}</span>
 </code></pre>
 <p><strong>MultiDropDown</strong> – a graphical control element, that allows the user to choose several values from a list.</p>
 
 <p><img src="images/multidropdown.png" alt="DropDown" /></p>
 
-<p>Here is the list of some available methods:</p>
+<p>Multi dropdown elements can be described by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.MultiDropdown</em></li>
+</ul>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -1221,7 +1216,7 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <td>bool</td>
 </tr>
 <tr>
-<td><strong>SelectOptionByname(string)</strong></td>
+<td><strong>SelectOption(string)</strong></td>
 <td>Select specified option</td>
 <td>void</td>
 </tr>
@@ -1252,7 +1247,40 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">Test examples</a></p>
+<p>The list of available methods for Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check(String/String.../Enum.../int...)</strong></td>
+<td>Select values in multi dropdown</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck(String.../Enum.../int...)</strong></td>
+<td>Unselect values in multi dropdown</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected value by default</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>checked()</strong></td>
+<td>Get selected values</td>
+<td>List<String></td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java">Java text examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">C# test examples</a></p>
 <h3 id='datalist'>DataList</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
