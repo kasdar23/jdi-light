@@ -321,7 +321,7 @@
                               <a href="#page-object-actions-with-elements-handle-flaky-tests" class="toc-h2 h3 toc-link" data-title="Page Object actions with elements. Handle flaky tests">Page Object actions with elements. Handle flaky tests</a>
                             </li>
                             <li>
-                              <a href="#failed-exceptions-and-allure-reports" class="toc-h2 h3 toc-link" data-title="Failed exceptions and Allure reports">Failed exceptions and Allure reports</a>
+                              <a href="#failed-test-and-allure-reports" class="toc-h2 h3 toc-link" data-title="Failed test and Allure reports">Failed test and Allure reports</a>
                             </li>
                         </ul>
                   </li>
@@ -725,16 +725,15 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <h3 id='csharp-nunit'>CSharp + NUnit</h3>
 <p><a href='https://github.com/jdi-templates/jdi-light-csharp-template' target="_blank">Github link</a> <br/></p>
 <h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1><h2 id='integration'>Integration</h2>
-<p>This article is a quick, practical introduction to working with <a href="https://github.com/jdi-testing/jdi-light">JDI Light</a>.<br/>
-In this section, we’ll start with a simple scenario – opening a browser window, navigating to a given URL and looking for some desired content on the page.<br/></p>
-<pre class="highlight java tab-java"><code><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+<p>This is set of simple tutorials that helps you to learn how to write tests fast with JDI Light <a href="https://github.com/jdi-testing/jdi-light">JDI Light</a>.<br/></p>
+<h3 id='maven-dependencies'>Maven Dependencies</h3><pre class="highlight java tab-java"><code><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">epam</span><span class="o">.</span><span class="na">jdi</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jdi</span><span class="o">-</span><span class="n">light</span><span class="o">-</span><span class="n">html</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</code></pre><h3 id='maven-dependencies'>Maven Dependencies</h3>
-<p>In the pom.xml file, add the following dependency: <br/>
-The latest version can be found in the <a href="https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light">Maven Central Repository</a>.<br/>
+</code></pre>
+<p>In order to add JDI Light in to your project add in to the pom.xml file following dependency: <br/>
+<em>The latest version can be found in the <a href="https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light">Maven Central Repository</a></em><br/>
 <br/><br/></p>
 <h3 id='configuration'>Configuration</h3><pre class="highlight java tab-java"><code><span class="n">driver</span><span class="o">=</span><span class="n">chrome</span>
 <span class="err">#</span><span class="n">drivers</span><span class="o">.</span><span class="na">version</span><span class="o">=</span><span class="mf">2.23</span> <span class="o">|</span> <span class="n">LATEST</span><span class="err">–</span> <span class="n">by</span> <span class="k">default</span> <span class="n">latest</span>
@@ -747,8 +746,7 @@ The latest version can be found in the <a href="https://search.maven.org/classic
 <span class="err">#</span><span class="n">browser</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="n">MAXIMIZE</span> <span class="o">|</span> <span class="mi">1024</span><span class="n">x762</span>
 </code></pre>
 <p>To run tests in JDI you don’t need to setup anything. By default JDI will download Chrome driver automatically, setup it and run while you try to access some page.<br/>
-But if you would like to change default settings you can do this in test.properties file (src/test/resources). Here some typical settings.<br/>
-<br/><br/><br/><br/></p>
+But if you would like to change default settings you can do this in test.properties file (src/test/resources). Here some typical settings.</p>
 <h2 id='simple-test-example'>Simple Test Example</h2><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JDILightExample</span> <span class="o">{</span> 
     <span class="kd">public</span> <span class="nf">openPage</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">WebPage</span><span class="o">.</span><span class="na">openUrl</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
@@ -787,13 +785,13 @@ Additional option is to use method shouldBeOpened() that validate if page is alr
 <span class="o">}</span>
 </code></pre>
 <p><em>*I hope you awareness enough and interested about TestInit class. This is just simple one method interface that initialize all PageObjects (HomePage in our case) in one line.</em><br/>
-<em>Yes with JDI Light you can do it in one line for all your Page Objects!</em><br/></p>
+<em>Yes with JDI Light you can do it in one line for all your Page Objects!</em></p>
 <h2 id='fill-contact-form-example'>Fill Contact Form Example</h2><h3 id='scenario'>Scenario</h3>
-<p>Now let’s look on more complex case:
-1. Open Baeldung<br/>
-2. Go to Contact page<br/>
-3. Fill Contact Form<br/>
-4. And validate that data in form is correct<br/>
+<p>Now let’s look on more complex case:<br/>
+    <strong>0. Open Baeldung</strong><br/>
+    <strong>1. Go to Contact page</strong><br/>
+    <strong>2. Fill Contact Form</strong><br/>
+    <strong>3. And validate that data in form is correct</strong><br/>
 <em>* Thanks to captcha we will not sent the form in this case but in your test application you can switch off captcha and validate filled form on next page for example or in DB</em><br/></p>
 <h3 id='create-pageobjects'>Create PageObjects</h3><pre class="highlight java tab-java"><code><span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"Baeldung | Java"</span><span class="o">,</span> <span class="n">validate</span> <span class="o">=</span> <span class="n">CONTAINS</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span> <span class="o">}</span>
@@ -822,7 +820,7 @@ Additional option is to use method shouldBeOpened() that validate if page is alr
 <span class="o">}</span>
 </code></pre>
 <p>But standard @Findby can be simplified in JDI annotations @Css and @XPath or even with universal @UI:<br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaeldungSite</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
@@ -836,15 +834,14 @@ Additional option is to use method shouldBeOpened() that validate if page is alr
 <span class="o">}</span>
 </code></pre>
 <p>We need to fill the form with some Contact information, let’s create an entity for it<br/>
-<br/>
-<code>java
-ContactInfo MY_CONTACT = new ContactInfo().set(c -&gt; {
-        c.firstName = &quot;Roman&quot;;
-        c.email = &quot;roman.iovlev.jdi@gmail.com&quot;;
-        c.message = &quot;Hi Baeldung!&quot;;} 
-);
-</code>
-And fill it with some data:<br/>
+<br/></p>
+<pre class="highlight java tab-java"><code><span class="n">ContactInfo</span> <span class="n">MY_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">email</span> <span class="o">=</span> <span class="s">"roman.iovlev.jdi@gmail.com"</span><span class="o">;</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="s">"Hi Baeldung!"</span><span class="o">;}</span> 
+<span class="o">);</span>
+</code></pre>
+<p>And fill it with some data:<br/>
 _* You can put you entities in separate DataProvider file or just near the test if this is one time entity<br/>
 <br/></p>
 <h3 id='init-page-objects-and-open-baeldungsite-site'>Init Page Objects and Open BaeldungSite site</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TestsInit</span> <span class="o">{</span>
@@ -867,43 +864,42 @@ _* You can put you entities in separate DataProvider file or just near the test 
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-<p>And now we can write a test:<br/></p>
+<p>And now we can write a test:<br/>
+    <strong>0. Open Baeldung</strong><br/>
+    <strong>1. Go to Contact page</strong><br/>
+    <strong>2. Fill Contact Form</strong><br/>
+    <strong>3. And validate that data in form is correct</strong><br/></p>
 <h2 id='test-run-results'>Test run results</h2><h3 id='test-scenario-and-log'>Test scenario and log</h3>
-<p>This simple 3 rows test will:
-- Open Baeldung site
-- Navigate to Contact Page
-- Fill contact form with your data and 
-- Validate that form filled correctly. </p>
+<p>This simple 3 rows test will:<br/>
+- Open Baeldung site<br/>
+- Navigate to Contact Page<br/>
+- Fill contact form with your data and<br/>
+- Validate that form filled correctly<br/>
+Exactly what see in test scenario. As result you will see detailed user actions log:</p>
 <pre class="highlight plaintext"><code>[ STEP 21:52.780]: Open 'Home Page'(url=http://www.baeldung.com/)
 [ STEP 21:59.008]: Open 'Contact Page'(url=http://www.baeldung.com/contact)
 [ STEP 22:00.236]: Send ContactInfo(firstName:Roman; email:roman.iovlev.jdi@gmail.com; message:Hi Baeldung!) in 'Contact Page Form'
 [ STEP 22:01.633]: Check that 'Contact Page Form' values are: ContactInfo(firstName:Roman; email:roman.iovlev.jdi@gmail.com; message:Hi Baeldung!)
 </code></pre>
-<p>Exactly what see in test scenario. As result you will see detailed user actions log:</p>
-
 <p>Pretty much the same as test scenario do. You can share this log with BA or Client to demonstrate what your tests do.<br/>
-If you need more details for maintenance purposes, you can change the level of your log to INFO. Using log4J settings you can customize output streams and log formats.</p>
+If you need more details for maintenance purposes, you can change the level of your log to INFO. Using log4J settings you can customize output streams and log formats.<br/></p>
 <h3 id='page-object-actions-with-elements-handle-flaky-tests'>Page Object actions with elements. Handle flaky tests</h3>
-<p>You don’t need to implement open, send and check methods they are already developed for you (as well as a lot of other typical functions).<br/>
+<p>You don’t need to implement <strong>open()</strong>, <strong>send()</strong> and <strong>check()</strong> methods they are already developed for you (as well as a lot of other typical functions).<br/>
 In addition, you don’t need to think about Thread sleeps, Explicit waits, stale or no such element exceptions. JDI Light will handle all staff that can make tests flaky for you. You just need to think about business part of test scenarios.</p>
-<h3 id='failed-exceptions-and-allure-reports'>Failed exceptions and Allure reports</h3><pre class="highlight plaintext"><code>Failed to execute 'check' for element 'Contact Page Form' action during '10' seconds. 
+<h3 id='failed-test-and-allure-reports'>Failed test and Allure reports</h3><pre class="highlight plaintext"><code>Failed to execute 'check' for element 'Contact Page Form' action during '10' seconds. 
 Exception: Check form failed:
 Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </code></pre>
 <p>You can stop before method check execution, change some filled (e.g. firstName to “Roman (changed)”) and continue test to see that check will throw exception in case of some mismatch. And this assertion will be pretty much readable also:</p>
 
-<p>JDI has good integration with Allure so as result of this test (if Allure are in place) you can see colorful and readable report with all tests execution results:</p>
-
-<p><img src="images/tutorial/allure-test-fail.png" alt="Allure test fail" />
-- <strong>Test execution log</strong></p>
-
-<p><img src="images/tutorial/allure-results.png" alt="Allure results" />
-- <strong>Detailed test’s fail reasons information (you can click on … under error text and observe full exception stack trace)</strong></p>
-
-<p><img src="images/tutorial/allure-test-run.png" alt="Allure test run" />
-- <strong>And history of all previous tests executions</strong></p>
-
-<p><img src="images/tutorial/allure-history.png" alt="Allure history" /></p>
+<p>JDI has good integration with Allure so as result of this test (if Allure are in place) you can see colorful and readable report with all tests execution results:
+<img src="images/tutorial/allure-results.png" alt="Allure results" />
+- <strong>Test execution log</strong>
+<img src="images/tutorial/allure-test-run.png" alt="Allure test run" />
+- <strong>Detailed test’s fail reasons information (you can click on … under error text and observe full exception stack trace)</strong>
+<img src="images/tutorial/allure-test-fail.png" alt="Allure test fail" />
+- <strong>And history of all previous tests executions</strong>
+<img src="images/tutorial/allure-history.png" alt="Allure history" /></p>
 
 <p>To generate such Allure report you need to copy allure-results folder from project root to target folder and run allure-serve maven plugin</p>
 <h2 id='create-custom-controls'>Create Custom controls</h2>
