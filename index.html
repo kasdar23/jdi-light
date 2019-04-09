@@ -984,7 +984,20 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>TBD</p>
 <h2 id='simple-elements'>Simple elements</h2>
 <p>TBD</p>
-<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>
+<p><strong>RadioButton</strong> – interface element that allows user to select one option from a predefined group.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=colors]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">colors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">colorsNoLocator</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Blue</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Blue"</span><span class="o">);</span>
+    <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Red</span><span class="o">);</span>
+    <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">Red</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -1002,9 +1015,16 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>RadioButton</strong> – interface element that allows user to select one option from a predefined group.</p>
+<p>Radio buttons are represented by the following class:</p>
 
-<p><img src="images/radiobutton.png" alt="RadioButton" /></p>
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.RadioButtons</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.RadioButton</em></li>
+</ul>
+
+<p>Consider an example where each radio button is a particular color, described with given HTML code:</p>
+
+<p><img src="images/html/radio_html.png" alt="RadioButton" /></p>
 
 <p>Here is the list of some available methods:</p>
 
@@ -1016,18 +1036,20 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Select(string/int)</strong></td>
+<td><strong>select(String/int/Enum)/Select(string/int)</strong></td>
 <td>Select radiobutton by value/index</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>GetSelected()</strong></td>
+<td><strong>selected()/GetSelected()</strong></td>
 <td>Get selected radiobutton value</td>
 <td>string</td>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">Test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java">Java text examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">C# test examples</a></p>
 <h3 id='table'>Table</h3>
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs">Test examples</a></p>
 <h3 id='dropdown'>DropDown</h3>
