@@ -1274,7 +1274,7 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <tr>
 <td><strong>checked()</strong></td>
 <td>Get selected values</td>
-<td>List<String></td>
+<td>List&lt;String&gt;</td>
 </tr>
 </tbody></table>
 
@@ -1348,17 +1348,17 @@ Datalist element contains a set of options with values available for entering.</
 <tr>
 <td><strong>values()</strong></td>
 <td>Get all option values from datalist</td>
-<td>List<String></td>
+<td>List&lt;String&gt;</td>
 </tr>
 <tr>
 <td><strong>listEnabled()</strong></td>
 <td>Return list of values of enabled options</td>
-<td>List<String></td>
+<td>List&lt;String&gt;</td>
 </tr>
 <tr>
 <td><strong>listDisabled()</strong></td>
 <td>Return list of values of disabled options</td>
-<td>List<String></td>
+<td>List&lt;String&gt;</td>
 </tr>
 </tbody></table>
 
@@ -1396,25 +1396,64 @@ Datalist element contains a set of options with values available for entering.</
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java">Java text examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs">C# test examples</a></p>
-<h3 id='checklist'>CheckList</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span> <span class="o">!!!!!!</span><span class="mi">111</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="s">"value1"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">);</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"value2"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckByIndexes</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
-    <span class="n">MyCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
+<h3 id='checklist'>CheckList</h3>
 <p><strong>CheckList</strong> – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).</p>
 
-<p><img src="images/checklist.png" alt="CheckList" /></p>
+<p>See an example with a given HTML code describing checklist element.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=checks-group]"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weather</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weatherNoLocator</span><span class="o">;</span>
 
-<p>Here is the list of some available methods:</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">weather</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">Cold</span><span class="o">,</span> <span class="n">Rainy</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">weather</span><span class="o">.</span><span class="na">checked</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Cold"</span><span class="o">,</span> <span class="s">"Rainy day"</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">weather</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">containsInAnyOrder</span><span class="o">(</span>
+      <span class="s">"Hot option"</span><span class="o">,</span> <span class="s">"Cold"</span><span class="o">,</span> <span class="s">"Rainy day"</span><span class="o">,</span> <span class="s">"Sunny"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">));</span>
+    <span class="n">weatherNoLocator</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Hot option"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "div:nth-child(11) &gt; div.html-left")]</span>
+<span class="k">public</span> <span class="n">ICheckList</span> <span class="n">WeatherCheckList</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Sunny"</span> <span class="p">});</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"Cold"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/html/checklist_html.png" alt="Checklist Example" /></p>
+
+<p>List of available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check(String.../Enum/int...)</strong></td>
+<td>Select checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck(String.../Enum/int...)</strong></td>
+<td>Unselect checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>checked()</strong></td>
+<td>Get selected checkbox values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -1444,13 +1483,20 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
+<td><strong>UncheckAll(Array)</strong></td>
+<td>Uncheck all checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
 <td><strong>GetChecked()</strong></td>
 <td>Get selected checkboxes from checklist value</td>
 <td>string[]</td>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">Test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java">Java text examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">C# test examples</a></p>
 <h3 id='multiselector'>MultiSelector</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
