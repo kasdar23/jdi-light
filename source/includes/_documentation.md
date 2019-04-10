@@ -242,7 +242,7 @@ The list of available methods for Java JDI Light:
 **check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
 **uncheck(String.../Enum.../int...)** | Unselect values in multi dropdown | void
 **selected()** | Get selected value by default | String
-**checked()** | Get selected values | List<String>
+**checked()** | Get selected values | List\<String>
 
 [Java text examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java)
 
@@ -302,9 +302,9 @@ The list of available methods in Java JDI Light:
 --- | --- | ---
 **select(String/Enum/int)** |Select datalist option by value or index | void
 **selected()** |Get selected option value | String
-**values()** |Get all option values from datalist | List<String>
-**listEnabled()** |Return list of values of enabled options | List<String>
-**listDisabled()** |Return list of values of disabled options | List<String>
+**values()** |Get all option values from datalist | List\<String>
+**listEnabled()** |Return list of values of enabled options | List\<String>
+**listDisabled()** |Return list of values of disabled options | List\<String>
 
 Here is the list of some available methods in C# JDI Light:
 
@@ -320,28 +320,50 @@ Here is the list of some available methods in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs)
 
 ### CheckList
-```java 
-TBD !!!!!!111
-```
-```csharp 
-[Test]
-public void CheckCheckList() 
-{
-    MyCheckList.Check("value1", "value2");
-    MyCheckList.Uncheck("value2");
-}
-[Test]
-public void CheckByIndexes() 
-{
-    MyCheckList.Check(1, 3);
-    MyCheckList.Uncheck(1);
-}
-```
 **CheckList** – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).
 
-![CheckList](../images/checklist.png)
+See an example with a given HTML code describing checklist element.
 
-Here is the list of some available methods:
+```java 
+@UI("[name=checks-group]") public static Checklist weather;
+public static Checklist weatherNoLocator;
+
+@Test
+public void selectTest() {
+    weather.check(Cold, Rainy);
+    assertEquals(weather.checked(), asList("Cold", "Rainy day"));
+}
+
+@Test
+public void assertValidationTest() {
+    weather.assertThat().values(containsInAnyOrder(
+      "Hot option", "Cold", "Rainy day", "Sunny", "Disabled"));
+    weatherNoLocator.assertThat().selected("Hot option");
+}
+```
+```csharp 
+[FindBy(Css = "div:nth-child(11) > div.html-left")]
+public ICheckList WeatherCheckList { get; set; }
+
+[Test]
+public void CheckCheckList()
+{
+    TestSite.Html5Page.WeatherCheckList.Check(new[] { "Cold", "Sunny" });
+    TestSite.Html5Page.WeatherCheckList.Uncheck("Cold");
+}
+```
+
+![Checklist Example](../images/html/checklist_html.png)
+
+List of available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**check(String.../Enum/int...)** |Select checkboxes | void
+**uncheck(String.../Enum/int...)** | Unselect checkboxes | void
+**checked()** | Get selected checkbox values | List\<String>
+
+Here is the list of some available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -349,9 +371,12 @@ Here is the list of some available methods:
 **Check(string/int)** |Select checklist by value/index  | void
 **Uncheck(string[]/int[])** |Unselect checklist by values/indexes  | void
 **Uncheck(string/int)** |Unselect checklist by value/index  | void
+**UncheckAll(Array)** |Uncheck all checkboxes | void
 **GetChecked()** |Get selected checkboxes from checklist value  | string[]
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs)
+[Java text examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs)
 
 ### MultiSelector
 ```java 
