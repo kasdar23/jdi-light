@@ -1281,8 +1281,7 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java">Java text examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">C# test examples</a></p>
-<h3 id='datalist'>DataList</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<h3 id='datalist'>DataList</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
 <span class="p">{</span>
     <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
@@ -1304,11 +1303,66 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
     <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.</p>
+<p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
+Datalist element contains a set of options with values available for entering.</p>
 
 <p><img src="images/datalist.png" alt="DataList" /></p>
 
-<p>Here is the list of some available methods:</p>
+<p>Datalist element type is provided by JDI Light in:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.DataList</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DataList</em></li>
+</ul>
+
+<p>Have a look at the following example with provided HTML code:</p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Strawberry</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Strawberry"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/html/datalist_html.png" alt="Datalist example" /></p>
+
+<p>The list of available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String/Enum/int)</strong></td>
+<td>Select datalist option by value or index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected option value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Get all option values from datalist</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>listEnabled()</strong></td>
+<td>Return list of values of enabled options</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>listDisabled()</strong></td>
+<td>Return list of values of disabled options</td>
+<td>List<String></td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -1339,7 +1393,9 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs">Test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java">Java text examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs">C# test examples</a></p>
 <h3 id='checklist'>CheckList</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span> 
