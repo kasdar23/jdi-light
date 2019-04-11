@@ -380,7 +380,21 @@ Here is the list of some available methods in C# JDI Light:
 
 ### MultiSelector
 ```java 
-TBD
+[Test]
+public void MultiSelectByValues()
+{
+    var toSelect = new[] {Ages.Metalic.ToString(), Ages.Electro.ToString()};
+    TestSite.Html5Page.AgeSelector.Select(toSelect);
+    var selectedItems = TestSite.Html5Page.AgeSelector.GetSelected(Enum.GetValues(typeof(Ages)));
+    Assert.AreEqual(selectedItems, toSelect);
+}
+[Test]
+public void MultiSelectByIndexes()
+{
+     TestSite.Html5Page.AgeSelector.Select(new[] { 1, 4 });
+     var selectedItems = TestSite.Html5Page.AgeSelector.GetSelected(Enum.GetValues(typeof(Ages)));
+      Assert.AreEqual(selectedItems, new[] {"Wood", "Steam" });
+}
 ```
 ```csharp 
 [Test]
