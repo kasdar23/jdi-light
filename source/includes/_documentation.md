@@ -395,10 +395,14 @@ public void MultiSelectByIndexes()
 }
 ```
 **MultiSelector** – a graphical control element, that allows the user to do multiple choice.
+Multi Selector are represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelect_
+  - __C#__: _JDI.Light.Elements.Common.MultiSelector_
 
 ![MultiSelector](../images/multiselector.png)
 
-Here is the list of some available methods:
+Here is the list of some available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -406,8 +410,21 @@ Here is the list of some available methods:
 **GetSelected(Array)** |Get selected values  | string[]
 **UnselectAll(Array)** |Unselect all values  | void
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
+Here is the list of some available methods in Java JDI Light:
 
+|Method | Description | Return Type
+--- | --- | ---
+**check(String/Strings.../TEnum...)** |Select multiselector by values | void
+**uncheck(Strings.../TEnum.../int)** |Select multiselector by values/indexes  | void
+**selected()** |Get selected values  | String
+**checked()** |Get selected values  | List<String>
+
+[Java text examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
+
+### Table
+[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JD
 ### ComboBox
 ```java 
 TBD
